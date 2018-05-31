@@ -22,6 +22,7 @@ export default class Navigation extends React.Component {
             <li><a id="real_estate_listener" href="/realestate" onClick="loadRealEstate();">Real Estate</a></li>
             <li><a id="user_tools_listener" href="/usertools" onClick="loadUserTools();">User Tools</a></li>
             <li><a id="voice_and_data_services_listener" href="/voiceanddataservices" onClick="loadVoiceAndDataServices();">Voice and Data Services</a></li>
+            <li><a id="dynamic_screen" href="/dynamic"> Dynamic </a> </li>
           </ul>
         {/*search bar */}
           <form className="navbar-form navbar-right" action="/action_page.php">

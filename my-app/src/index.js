@@ -13,6 +13,7 @@ import BudgetRequestScreen from './components/screens/BudgetRequest'
 import ContractorManagementScreen from './components/screens/ContractorManagement'
 import RealEstateScreen from './components/screens/RealEstate'
 import VoiceAndDataServices from './components/screens/VoiceAndDataServices'
+import DynamicScreen from './components/screens/Dynamic'
 
 //renders the routes to transfer data between screens
 ReactDOM.render(
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="/contractormanagement" component={ContractorManagementScreen} />
         <Route path="/realestate" component={RealEstateScreen} />
         <Route path="/voiceanddataservices" component={VoiceAndDataServices} />
+        <Route path="/dynamic" component={DynamicScreen} />
       </div>
   </Router>,
   document.getElementById('root')
