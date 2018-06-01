@@ -1,7 +1,7 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import {panel, createPanels, centerPanel, linksPanel} from './objects/panel';
+import {panel, createPanels, centerPanel, linksPanel, createCenterPanels} from './objects/panel';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
 import {button, dropDownButton} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
@@ -10,37 +10,23 @@ import {createNavBar} from './objects/navbar';
 
 let one = new Object();
 one.route = "link";
-one.header = "Change User Password";
+one.header = "Find Contractors";
 one.body = "Changes a Users Password When Clicked";
 let two= new Object();
 two.route = "link";
-two.header = "Unix Access"
+two.header = "Provision Contractors"
 two.body = "Request UNIX Access. If you need help requestion access, please, click here"
 let three= new Object();
 three.route = "link";
-three.header = "Bulk Password Reset Request";
+three.header = "Manage Contractors";
 three.body = "Request user password reset for organizations with extended user count";
-let four= new Object();
-four.route = "link";
-four.header = "AAUR (Access Another User(s) Resources";
-four.body = "For Business Continuity. To gain access to Email, information on hard drive, or share folders/home drives of Terminated or Users on Disability. If you need help requesting access, please click here. For obtaining information on Active employees please consult with your HR Business Partner (HRBP)";
-let five= new Object();
-five.route = "link";
-five.header = "Application Access V2";
-five.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
-let six= new Object();
-six.route = "link";
-six.header = "Application Global Group(s) & CITRIX ICON";
-six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRIX access publishes the CITRIX ICON that is used in CTL CITRIX for user(s). Application Global Group(s) access provides rights and permissions to a group of user(s) needing access to a specific Application(s). If you need help requesting access, please click here";
 
 
 let list = [];
 list.push(one);
 list.push(two);
 list.push(three);
-list.push(four);
-list.push(five);
-list.push(six);
+
 
 
 let navBarObj = new Object();
@@ -127,17 +113,19 @@ linkObj.linkList.push(lObj);
 linkObj.linkList.push(lObj);
 linkObj.linkList.push(lObj);
 
+let importantLinksHeader = new Object();
+importantLinksHeader.header = "Important Links";
+
 export default class DynamicBodyScreen extends React.Component {
   render() {
     return (
       <div>
           {createNavBar(navBarObj)}
           <div className="container">
-            {centerPanel(centerObj)}
+            {header(importantLinksHeader)}
             {linksPanel(linkObj)}
-            {headerAndDescription(headerAndDisc)}
             {header(workFlowHeader)}
-            {createPanels(list)}
+            {createCenterPanels(list)}
           </div>
       </div>
     );

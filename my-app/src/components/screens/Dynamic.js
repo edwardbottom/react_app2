@@ -1,65 +1,15 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import {panel, createPanels, centerPanel} from './objects/panel';
+import {panel, createPanels, centerPanel, linksPanel, createCenterPanels} from './objects/panel';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
 import {button, dropDownButton} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 
-let one = new Object();
-one.route = "link";
-one.header = "Cloud SUDO Access";
-one.body = "Request Cloud SUDO Access";
-let two= new Object();
-two.route = "link";
-two.header = "Unix Access"
-two.body = "Request UNIX Access. If you need help requestion access, please, click here"
-let three= new Object();
-three.route = "link";
-three.header = "Bulk Password Reset Request";
-three.body = "Request user password reset for organizations with extended user count";
-let four= new Object();
-four.route = "link";
-four.header = "AAUR (Access Another User(s) Resources";
-four.body = "For Business Continuity. To gain access to Email, information on hard drive, or share folders/home drives of Terminated or Users on Disability. If you need help requesting access, please click here. For obtaining information on Active employees please consult with your HR Business Partner (HRBP)";
-let five= new Object();
-five.route = "link";
-five.header = "Application Access V2";
-five.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
-let six= new Object();
-six.route = "link";
-six.header = "Application Global Group(s) & CITRIX ICON";
-six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRIX access publishes the CITRIX ICON that is used in CTL CITRIX for user(s). Application Global Group(s) access provides rights and permissions to a group of user(s) needing access to a specific Application(s). If you need help requesting access, please click here";
 
 
-let list = [];
-list.push(one);
-list.push(two);
-list.push(three);
-list.push(four);
-list.push(five);
-list.push(six);
-
-
-let textObj = new Object();
-textObj.header = "Access Request";
-textObj.description = "Tools to manage system and application access.";
-
-let headerObj = new Object();
-headerObj.header = "Work Flows";
-
-/*
-  <li><a id="my_tasks_listener" href="/home" onClick="loadMyTasks();">My Tasks</a></li>
-  <li><a id="access_request_listener" href="/accessrequest" onClick="loadAccessRequest();">Access Request</a></li>
-  <li><a id="budget_request_listener" href="/budgetrequests" onClick="loadBudgetRequest();">Budget Request</a></li>
-  <li><a id="contractor_management_listener" href="/contractormanagement" onClick="loadContractorManagement();">Contractor Management</a></li>
-  <li><a id="real_estate_listener" href="/realestate" onClick="loadRealEstate();">Real Estate</a></li>
-  <li><a id="user_tools_listener" href="/usertools" onClick="loadUserTools();">User Tools</a></li>
-  <li><a id="voice_and_data_services_listener" href="/voiceanddataservices" onClick="loadVoiceAndDataServices();">Voice and Data Services</a></li>
-  <li><a id="dynamic_screen" href="/dynamic"> Dynamic </a> </li>
-*/
 let navBarObj = new Object();
 navBarObj.titlePath = "/home";
 let navItems = [];
@@ -119,30 +69,109 @@ let searchBar = new Object();
 searchBar.router = "phpIsTheWorst";
 searchBar.placeholder = "Search WSS System";
 
+
 navBarObj.searchbar = searchBar;
-class DynamicBody extends React.Component {
+
+let otherSearchBar = new Object();
+otherSearchBar.router = "phpIsTheWorst";
+otherSearchBar.placeholder = "Search Corperate Directory";
+
+navBarObj.searchbar = searchBar;
+
+export default class DynamicBodyScreen extends React.Component {
   render() {
     return (
       <div>
           {createNavBar(navBarObj)}
           <div className="container">
-            {headerAndDescription(textObj)}
-            {header(headerObj)}
-            {createPanels(list)}
+              <div id="My_Tasks_Screen">
+      <div className="container">
+        {rightSearchBar(otherSearchBar)}
+        <div className="row">
+            <div className="col-md-4"> 
+            {/*tasks column with drop down menue*/}
+              <div className="dropdown">
+                  <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Tasks
+                  </button>
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item" href="#">Sort Ascending</a>
+                    <a className="dropdown-item" href="#">Sort Descending</a>
+                    <a className="dropdown-item" href="#">Configure Sort</a>
+                    <a className="dropdown-item" href="#">Auto Fit</a>
+                  </div>
+              </div>
+                <table className="table table-striped table-bordered table-hover">
+                {/*table headers*/}
+                  <thead>
+                    <tr>
+                        <th scope="col">Desciption</th>
+                        <th scope="col">Requested</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {/*iteam in table */}
+                    <tr>
+                        <th scope="row"> A Task</th>
+                        <td>This will be automated by React</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">A Task</th>
+                        <td>This will be automated by React</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">A Task</th>
+                        <td>This will be automated by React</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          <div className="col-md-4"> 
+              <div className="dropdown">
+                {/*column for requests*/}
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Requests
+                </button>
+                {/*drop down menue options */}
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a clasNames="dropdown-item" href="#">Sort Ascending</a>
+                  <a className="dropdown-item" href="#">Sort Descending</a>
+                  <a className="dropdown-item" href="#">Configure Sort</a>
+                  <a className="dropdown-item" href="#">Auto Fit</a>
+                </div>
+            </div>
+              <table className="table table-striped table-bordered table-hover">
+                <thead>
+                  {/*table headers*/}
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/*table iteam */}
+                  <tr>
+                      <th scope="row"> A Task</th>
+                      <td>This will be automated by React</td>
+                  </tr>
+                  <tr>
+                      <th scope="row">A Task</th>
+                      <td>This will be automated by React</td>
+                  </tr>
+                  <tr>
+                      <th scope="row">A Task</th>
+                      <td>This will be automated by React</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+</div>
           </div>
       </div>
     );
   }
 }
 
-export default class DynamicScreen extends Component {
-  render(){
-    return(
-      <div>
-        {/*<Navigation/>*/}
-        <DynamicBody/>
-      </div>
-    );
-  }
-}
 

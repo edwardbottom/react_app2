@@ -1,79 +1,151 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import { Link } from 'react-router-dom';
+import {panel, createPanels, centerPanel, linksPanel} from './objects/panel';
+import {headerAndDescription, header} from './objects/HeaderAndDescription';
+import {button, dropDownButton} from './objects/buttons';
+import {rightSearchBar} from './objects/SearchBar';
+import {table} from './objects/table';
+import {createNavBar} from './objects/navbar';
 
-//class that creates the body of the contractor management screen
-class RealEstate extends React.Component {
+let one = new Object();
+one.route = "link";
+one.header = "Change User Password";
+one.body = "Can change a user's password when clicked. ";
+let two= new Object();
+two.route = "link";
+two.header = "Vehicle Change/Transfer Request";
+two.body = "Used to transfer a vehicle to a new driver and company or department";
+let three= new Object();
+three.route = "link";
+three.header = "Vehicle Change/Transfer Request";
+three.body = "Used to transfer a vehicle to a new driver and company or department";
+let four= new Object();
+four.route = "link";
+four.header = "Vehicle Change/Transfer Request";
+four.body = "Used to transfer a vehicle to a new driver and company or department";
+let five= new Object();
+five.route = "link";
+five.header = "Vehicle Change/Transfer Request";
+five.body = "Used to transfer a vehicle to a new driver and company or department";
+let six= new Object();
+six.route = "link";
+six.header = "Vehicle Change/Transfer Request";
+six.body = "Used to transfer a vehicle to a new driver and company or department";
+
+let list = [];
+list.push(one);
+list.push(two);
+list.push(three);
+list.push(four);
+list.push(five);
+list.push(six);
+
+let textObj = new Object();
+textObj.header = "Budget Requests";
+textObj.description = "This will contain the Budget Requests";
+
+let navBarObj = new Object();
+navBarObj.titlePath = "/home";
+let navItems = [];
+let navone = new Object();
+navone.id = "my_tasks_listener"
+navone.path= "/home"
+navone.action= "loadMyTasks();"
+navone.description= "My Tasks";
+
+let navtwo = new Object();
+navtwo.id = "access_request_listener";
+navtwo.path= "/accessrequest";
+navtwo.description="Access Request";
+
+let navthree = new Object();
+navthree.id = "budget_request_listener";
+navthree.path= "/budgetrequests";
+navthree.description="Budget Request";
+
+let navfour = new Object();
+navfour.id = "contractor_management_listener";
+navfour.path= "/contractormanagement";
+navfour.description="Contractor Management";
+
+let navfive = new Object();
+navfive.id = "real_estate_listener";
+navfive.path= "/realestate";
+navfive.description="Real Estate"
+
+let navseven = new Object();
+navseven.id = "user_tools_listener";
+navseven.path= "/usertools";
+navseven.description="User Tools"
+
+let naveight = new Object();
+naveight.id = "voice_and_data_services_listener"
+naveight.path= "/voiceanddataservices"
+naveight.description="Voice and Data Services"
+
+let navnine = new Object();
+navnine.id= "dynamic_screen"
+navnine.path= "/dynamic"
+navnine.description="Dynamic"
+
+navItems.push(navone);
+navItems.push(navtwo);
+navItems.push(navthree);
+navItems.push(navfour);
+navItems.push(navfive);
+navItems.push(navseven);
+navItems.push(naveight);
+navItems.push(navnine);
+
+navBarObj.list = navItems;
+
+let searchBar = new Object();
+searchBar.router = "phpIsTheWorst";
+searchBar.placeholder = "Search WSS System";
+
+let center = new Object();
+center.route = "link"
+center.body = "Support work space assignment and updates with optional changes to existing services including: Telephone service, Hardware reallocation, and mover requirements. In addition, the requisition and management of furniture to work locations.";
+center.header = "Real Estate"
+
+let headerObj = new Object();
+headerObj.header = "Important Links";
+
+navBarObj.searchbar = searchBar;
+
+let linksObj = new Object();
+linksObj.route = "link";
+linksObj.header = "Important Links";
+
+let link = new Object();
+link.url = "link";
+link.text = "This is a link";
+
+linksObj.linkList = [];
+linksObj.linkList.push(link);
+linksObj.linkList.push(link);
+linksObj.linkList.push(link);
+linksObj.linkList.push(link);
+
+let workFlowObj = new Object();
+workFlowObj.header = "Work Flow";
+
+export default class DynamicBody extends React.Component {
   render() {
     return (
       <div>
-        <div id="Budget_Estate_Screen">
+          {createNavBar(navBarObj)}
           <div className="container">
-                {/*Real Estate Panel*/}
-                <div className="panel panel-success">
-                  <div className="panel-heading"><a href="url"><center>Real Estate</center></a></div>
-                  <div className="panel-body">Support work space assignment and updates with optional changes to existing services including: Telephone service, Hardware reallocation, and mover requirements. In addition, the requisition and management of furniture to work locations.</div>
-                </div>
-                {/*Access Request section*/}
-                <h3>Important Links</h3>
-                <br/>
-                <div className="panel panel-success">
-                    <div className="panel-heading">Important Links</div>
-                    <div className="panel-body">
-                      <ul>
-                        <li>Space Management <a href="url">Support management of workspace assignment, occupancy and relocation.</a><br/></li>
-                        <li>Funiture Management <a href="url">Support management of workspace assignment, occupancy and relocation.</a><br/></li>
-                        <li>Space Management <a href="url">Support management of workspace assignment, occupancy and relocation.</a><br/></li>
-                        <li>Furniture Request <a href="url">Support management of workspace assignment, occupancy and relocation.</a><br/></li>
-                      </ul>
-                    </div>
-                </div>
-                  <div className="panel-group">
-                  {/*work flow section*/}
-                  <h3>Work Flows <button type="button" className="btn btn-success" data-toggle="modal" data-target="#work_flow_modal">
-                    Add To Work Flow </button></h3>
-                  {/*link and description to change the users password*/}
-                  <div id="change_password" className="panel panel-success">
-                    <div className="panel-heading"><a href="#" data-toggle="modal" data-target="#change-password-modal">Change User Password</a></div>
-                    <div className="panel-body">Changes a users password when clicked </div>
-                  </div>
-                  <div className="panel panel-success">
-                    <div className="panel-heading">(Bug-Fix) Password Reset Request</div>
-                    <div className="panel-body">(BUG-FIX)Request user password reset.</div>
-                  </div>
-                  <div className="panel panel-success">
-                    <div className="panel-heading">Bulk Password Reset Request</div>
-                    <div className="panel-body">Request user password reset for organizations with extended user count</div>
-                  </div>
-                  <div className="panel panel-success">
-                    <div className="panel-heading">CTL DOMAIN PASSWORD RESET</div>
-                    <div className="panel-body">Request user domain password reset</div>
-                  </div>
-                  <div className="panel panel-success">
-                    <div className="panel-heading">Panel with panel-success class</div>
-                    <div className="panel-body">Panel Content</div>
-                  </div>
-                  <div className="panel panel-success">
-                    <div className="panel-heading">Panel with panel-success class</div>
-                    <div className="panel-body">Panel Content</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {centerPanel(center)}
+            {header(headerObj)}
+            {linksPanel(linksObj)}
+            {(header(workFlowObj))}
+            {createPanels(list)}
           </div>
-        );
-      }
-    }
-
-//screen to view contractor managment
-export default class RealEstateScreen extends Component {
-  render(){
-    return(
-      <div>
-        <Navigation/>
-        <RealEstate/>
       </div>
     );
   }
 }
+
+
