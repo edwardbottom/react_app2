@@ -2,17 +2,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-//class for creating a single panel
-// class Panel extends React.Component {
-//   render(){
-//     return(
-//       	<div className="panel panel-success">
-//         	<div className="panel-heading"><a href={props.route}>{props.header}</a></div>
-//         	<div className="panel-body">{props.body}</div>
-//         </div>
-//     );
-//   }
-// }
 
 export function welcome(props){
 	return <h1>Hello, {props.name}</h1>;
@@ -27,15 +16,42 @@ export function panel(props){
     );
 }
 
+export function centerPanel(props){
+	return(
+		<div className="panel panel-success">
+            <div className="panel-heading"><a href={props.route}><center>{props.header}</center></a></div>
+            <div className="panel-body">{props.body}</div>
+        </div>
+	)
+}
+
+function link(props){
+	return(
+		<a href={props.link}>{props.text}</a> 
+	)
+}
+export function linksPanel(props){
+	return(
+		<div className="panel panel-success">
+            <div className="panel-heading"><a href={props.route}>props.header}</a></div>
+            <div className="panel-body">
+            	{props.linkList.map((linkObj, index) =>
+              		link(linkObj)
+          		)};
+            </div>
+        </div>
+		)
+}
+
 export function createPanels(list){
-	render(){
 		return (
-			<div>
+		<div>
 			<hr/>
           		{list.map((pan, index) =>
               		panel(pan)
-          		)}
-          	</div>
-		);
-	};
+          		)};
+        </div>
+	);
 }
+
+
