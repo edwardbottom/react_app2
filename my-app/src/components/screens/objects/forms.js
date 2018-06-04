@@ -19,12 +19,13 @@ export function input(props){
   }
 }
 
+//creates a link for a modal
 export function modalButton(props){
   return(
     <a href={props.link} data-toggle="modal" data-target={props.target}>{props.text}</a>
     )
 }
-
+//creates a basic modal with no header or footer and a sumbit button
 export function basicModal(props){
   return(
     <center>

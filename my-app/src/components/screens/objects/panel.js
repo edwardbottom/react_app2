@@ -57,6 +57,8 @@ export function centerPanel(props){
 	)
 }
 
+//creates a collapisble panel using an object with a route, header, targer, description, 
+//and array of input objects
 export function collapsePanel(props){
   return(
     <div className="panel panel-success">
