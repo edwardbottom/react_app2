@@ -1,7 +1,7 @@
 //react libraries and imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 //imports the screens for the routes from the files in the screens folder
@@ -28,6 +28,7 @@ ReactDOM.render(
         <Route path="/realestate" component={RealEstateScreen} />
         <Route path="/voiceanddataservices" component={VoiceAndDataServicesScreen} />
         <Route path="/dynamic" component={DynamicScreen} />
+        <Route exact path="/" component={HomeScreen} />
       </div>
   </Router>,
   document.getElementById('root')

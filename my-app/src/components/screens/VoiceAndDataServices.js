@@ -8,6 +8,7 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 
+//random data
 let one = new Object();
 one.route = "link";
 one.header = "Change User Password";
@@ -127,7 +128,8 @@ linkObj.linkList.push(lObj);
 linkObj.linkList.push(lObj);
 linkObj.linkList.push(lObj);
 
-export default class DynamicBodyScreen extends React.Component {
+//renders a class for the voice and data services screen
+export default class VoiceAndDataServicesScreen extends React.Component {
   render() {
     return (
       <div>

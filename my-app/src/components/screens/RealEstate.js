@@ -8,6 +8,7 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 
+//random data
 let one = new Object();
 one.route = "link";
 one.header = "Change User Password";
@@ -131,7 +132,8 @@ linksObj.linkList.push(link);
 let workFlowObj = new Object();
 workFlowObj.header = "Work Flow";
 
-export default class DynamicBody extends React.Component {
+//renders the real estate screen
+export default class RealEstateScreen extends React.Component {
   render() {
     return (
       <div>

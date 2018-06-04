@@ -1,6 +1,7 @@
 //imports react 
 import React, { Component } from 'react';
 
+//takes in a json object with a target and text and renders a button
 export function button(props){
 	return(
     <div>
@@ -10,25 +11,37 @@ export function button(props){
     </div>
     );
 }
+//renders a button as a link using an object with text and a target
+export function buttonWithLink(props){
+  return(
+    <div>
+      <a href={props.target} className="btn btn-success" role="button">{props.text}</a>
+    </div>
+    );
+}
 
+//a helper function used to render objects in a dropdown menu using a path and description
 function dropDownIteam(props){
   return(
     <a className="dropdown-item" href={props.path}>{props.description}</a>
   );
 }
+
+//creates a dropdown button using an object with an id, description, and array or dropdown objects
 export function dropDownButton(props){
   return(
     <div>
       <div className="dropdown">
-        <button className="btn btn-success dropdown-toggle" type="button" id={props.id} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button className="btn btn-success dropdown-toggle" type="button" id={props.id} data-toggle="dropdown">
           {props.description}
-        </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <hr/>
+        <span class="caret"></span></button>
+        <ul className="dropdown-menu">
+            <li>
               {props.list.map((dropObj, index) =>
                   dropDownIteam(dropObj)
-              )};
-        </div>
+              )}
+            </li>
+        </ul>
       </div>
     </div>
     )

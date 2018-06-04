@@ -1,14 +1,12 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import {panel, createPanels, centerPanel, linksPanel, createCenterPanels} from './objects/panel';
+import {panel, createPanels, centerPanel, linksPanel, createCenterPanels, centerPanelWithRows, centerPanelWithTable} from './objects/panel';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
-import {button, dropDownButton} from './objects/buttons';
+import {button, dropDownButton, buttonWithLink} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
-
-
 
 let navBarObj = new Object();
 navBarObj.titlePath = "/home";
@@ -72,11 +70,57 @@ searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
 
-let otherSearchBar = new Object();
-otherSearchBar.router = "phpIsTheWorst";
-otherSearchBar.placeholder = "Search Corperate Directory";
+let linksHead = new Object();
+linksHead.header = "Important Links";
 
-navBarObj.searchbar = searchBar;
+let linksPanelO = new Object();
+linksPanelO.route = "/route";
+linksPanelO.header = "Important Links";
+
+let linkObj = new Object();
+linkObj.route="www.awebsite.com";
+linkObj.text="this is a link";
+
+linksPanelO.linkList = [];
+linksPanelO.linkList.push(linkObj);
+linksPanelO.linkList.push(linkObj);
+
+let headerObj = new Object();
+headerObj.header = "Work Flow";
+
+let findContractors = new Object();
+findContractors.header = "Find Contractors";
+
+let provisionContractors = new Object();
+provisionContractors.header = "Provision Contractors";
+provisionContractors.body = [];
+let rowObj = new Object();
+rowObj.task = "This is a task";
+rowObj.description = "that will come from the database";
+provisionContractors.body.push(rowObj);
+provisionContractors.body.push(rowObj);
+provisionContractors.body.push(rowObj);
+
+let manageContractors = new Object();
+manageContractors.header = "Manage Contractors";
+manageContractors.body = [];
+manageContractors.body.push(rowObj);
+manageContractors.body.push(rowObj);
+manageContractors.body.push(rowObj);
+
+let tablePanel = new Object();
+tablePanel.header = "Manage Contractors";
+tablePanel.route = "/route";
+tablePanel.tableContents = [];
+let rowObject = Object();
+rowObject.task = "A task";
+rowObject.description = "and a description";
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
 
 export default class DynamicBodyScreen extends React.Component {
   render() {
@@ -84,90 +128,16 @@ export default class DynamicBodyScreen extends React.Component {
       <div>
           {createNavBar(navBarObj)}
           <div className="container">
-              <div id="My_Tasks_Screen">
-      <div className="container">
-        {rightSearchBar(otherSearchBar)}
-        <div className="row">
-            <div className="col-md-4"> 
-            {/*tasks column with drop down menue*/}
-              <div className="dropdown">
-                  <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Tasks
-                  </button>
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Sort Ascending</a>
-                    <a className="dropdown-item" href="#">Sort Descending</a>
-                    <a className="dropdown-item" href="#">Configure Sort</a>
-                    <a className="dropdown-item" href="#">Auto Fit</a>
-                  </div>
+            <div id="Contractor_Management_Screen">
+              <div className="container">
+                {header(linksHead)}
+                {linksPanel(linksPanelO)}
+                {header(headerObj)}
+                {centerPanelWithRows(provisionContractors)}
+                {centerPanelWithRows(manageContractors)}
+                {centerPanelWithTable(tablePanel)}
               </div>
-                <table className="table table-striped table-bordered table-hover">
-                {/*table headers*/}
-                  <thead>
-                    <tr>
-                        <th scope="col">Desciption</th>
-                        <th scope="col">Requested</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {/*iteam in table */}
-                    <tr>
-                        <th scope="row"> A Task</th>
-                        <td>This will be automated by React</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">A Task</th>
-                        <td>This will be automated by React</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">A Task</th>
-                        <td>This will be automated by React</td>
-                    </tr>
-                </tbody>
-              </table>
             </div>
-          <div className="col-md-4"> 
-              <div className="dropdown">
-                {/*column for requests*/}
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  My Requests
-                </button>
-                {/*drop down menue options */}
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a clasNames="dropdown-item" href="#">Sort Ascending</a>
-                  <a className="dropdown-item" href="#">Sort Descending</a>
-                  <a className="dropdown-item" href="#">Configure Sort</a>
-                  <a className="dropdown-item" href="#">Auto Fit</a>
-                </div>
-            </div>
-              <table className="table table-striped table-bordered table-hover">
-                <thead>
-                  {/*table headers*/}
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/*table iteam */}
-                  <tr>
-                      <th scope="row"> A Task</th>
-                      <td>This will be automated by React</td>
-                  </tr>
-                  <tr>
-                      <th scope="row">A Task</th>
-                      <td>This will be automated by React</td>
-                  </tr>
-                  <tr>
-                      <th scope="row">A Task</th>
-                      <td>This will be automated by React</td>
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-      </div>
-    </div>
-</div>
           </div>
       </div>
     );

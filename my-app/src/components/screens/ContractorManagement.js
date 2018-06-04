@@ -1,110 +1,146 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import { Link } from 'react-router-dom';
+import {panel, createPanels, centerPanel, linksPanel, createCenterPanels, centerPanelWithRows, centerPanelWithTable} from './objects/panel';
+import {headerAndDescription, header} from './objects/HeaderAndDescription';
+import {button, dropDownButton, buttonWithLink} from './objects/buttons';
+import {rightSearchBar} from './objects/SearchBar';
+import {table} from './objects/table';
+import {createNavBar} from './objects/navbar';
 
-//class that creates the body of the contractor management screen
-class ContractorManagment extends React.Component {
+//random data
+let navBarObj = new Object();
+navBarObj.titlePath = "/home";
+let navItems = [];
+let navone = new Object();
+navone.id = "my_tasks_listener"
+navone.path= "/home"
+navone.action= "loadMyTasks();"
+navone.description= "My Tasks";
+
+let navtwo = new Object();
+navtwo.id = "access_request_listener";
+navtwo.path= "/accessrequest";
+navtwo.description="Access Request";
+
+let navthree = new Object();
+navthree.id = "budget_request_listener";
+navthree.path= "/budgetrequests";
+navthree.description="Budget Request";
+
+let navfour = new Object();
+navfour.id = "contractor_management_listener";
+navfour.path= "/contractormanagement";
+navfour.description="Contractor Management";
+
+let navfive = new Object();
+navfive.id = "real_estate_listener";
+navfive.path= "/realestate";
+navfive.description="Real Estate"
+
+let navseven = new Object();
+navseven.id = "user_tools_listener";
+navseven.path= "/usertools";
+navseven.description="User Tools"
+
+let naveight = new Object();
+naveight.id = "voice_and_data_services_listener"
+naveight.path= "/voiceanddataservices"
+naveight.description="Voice and Data Services"
+
+let navnine = new Object();
+navnine.id= "dynamic_screen"
+navnine.path= "/dynamic"
+navnine.description="Dynamic"
+
+navItems.push(navone);
+navItems.push(navtwo);
+navItems.push(navthree);
+navItems.push(navfour);
+navItems.push(navfive);
+navItems.push(navseven);
+navItems.push(naveight);
+navItems.push(navnine);
+
+navBarObj.list = navItems;
+
+let searchBar = new Object();
+searchBar.router = "phpIsTheWorst";
+searchBar.placeholder = "Search WSS System";
+
+
+navBarObj.searchbar = searchBar;
+
+let linksHead = new Object();
+linksHead.header = "Important Links";
+
+let linksPanelO = new Object();
+linksPanelO.route = "/route";
+linksPanelO.header = "Important Links";
+
+let linkObj = new Object();
+linkObj.route="www.awebsite.com";
+linkObj.text="this is a link";
+
+linksPanelO.linkList = [];
+linksPanelO.linkList.push(linkObj);
+linksPanelO.linkList.push(linkObj);
+
+let headerObj = new Object();
+headerObj.header = "Work Flow";
+
+let findContractors = new Object();
+findContractors.header = "Find Contractors";
+
+let provisionContractors = new Object();
+provisionContractors.header = "Provision Contractors";
+provisionContractors.body = [];
+let rowObj = new Object();
+rowObj.task = "This is a task";
+rowObj.description = "that will come from the database";
+provisionContractors.body.push(rowObj);
+provisionContractors.body.push(rowObj);
+provisionContractors.body.push(rowObj);
+
+let manageContractors = new Object();
+manageContractors.header = "Manage Contractors";
+manageContractors.body = [];
+manageContractors.body.push(rowObj);
+manageContractors.body.push(rowObj);
+manageContractors.body.push(rowObj);
+
+let tablePanel = new Object();
+tablePanel.header = "Manage Contractors";
+tablePanel.route = "/route";
+tablePanel.tableContents = [];
+let rowObject = Object();
+rowObject.task = "A task";
+rowObject.description = "and a description";
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+tablePanel.tableContents.push(rowObject);
+
+//renders the contractor management screen
+export default class ContractorManagementScreen extends React.Component {
   render() {
     return (
       <div>
-        <div id="Contractor_Management_Screen">
+          {createNavBar(navBarObj)}
           <div className="container">
-                {/*Important Links section*/}
-                <h3>Important Links</h3>
-                <br/>
-                <div className="panel panel-success">
-                    <div className="panel-heading">Important Links</div>
-                    <div className="panel-body">
-                      <ul>
-                        <li>Contractor Policy <a href="url">The CenturyLink policy regarding use of Supplemental Staff</a><br/></li>
-                        <li>Management of Contractors <a href="url">Guidance regarding selection of individuals as contractors, and appropriate treatment of those individuals while assigned at CenturyLink</a></li>
-                      </ul>
-                    </div>
-                </div>
-                  {/*work flow section*/}
-                  <h3>Work Flows</h3>
-                  {/*panel to find contractors*/}
-                  <div className="panel panel-success">
-                      <div className="panel-heading"><center>Find Contractors</center></div>
-                      <div className="panel-body">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-md-6">Vendor List for Non-It Contractors</div>
-                            <div className="col-md-6">Used for Finding an Approved Vendor Provided Contractor</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-md-6">Process for ITS Contractors</div>
-                            <div className="col-md-6">Used for Finding an Approved Vendor Provided Contractor</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-md-6">Vendor List for Non-It Contractors Links</div>
-                            <div className="col-md-6">Used for Finding an Approved Vendor Provided Contractor</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  {/*panel for provision contractors*/}
-                  <div className="panel panel-success">
-                    <div className="panel-heading"><center>Provision Contractors</center></div>
-                      <div className="panel-body">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-md-6">New Contractor ID Provisioning V2</div>
-                            <div className="col-md-6">New Contractor ID Provisioning</div>
-                          </div>
-                          <br/>
-                          <div className="row">
-                            <div className="col-md-6">New Contractor ID Provisioning V3</div>
-                            <div className="col-md-6">New Contractor ID Provisioning</div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                {/*panel to manage contractors*/}
-                  <div className="panel panel-success">
-                      <div className="panel-heading"><center>Manage Contractors</center></div>
-                      <div className="panel-body">
-                        <table class="table table-bordered table-hover">
-                        <tbody>
-                          <tr>
-                            <td>Display My People</td>
-                            <td>Displays all individuals assigned to the person that is logged in</td>
-                          </tr>
-                          <tr>
-                            <td>Update/Extend/Terminate a Contractor</td>
-                            <td>Displays all individuals assigned to the person that is logged in</td>
-                          </tr>
-                          <tr>
-                            <td>Mass Contractor End Date Update</td>
-                            <td>Displays all individuals assigned to the person that is logged in</td>
-                          </tr>
-                          <tr>
-                            <td>New Mass Contractor End Date Update</td>
-                            <td>Displays all individuals assigned to the person that is logged in</td>
-                          </tr>
-                          <tr>
-                            <td>Update/Extend/Terminate a Contractor </td>
-                            <td>Displays all individuals assigned to the person that is logged in</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      </div>
-                  </div>
-                </div>
+            <div id="Contractor_Management_Screen">
+              <div className="container">
+                {header(linksHead)}
+                {linksPanel(linksPanelO)}
+                {header(headerObj)}
+                {centerPanelWithRows(provisionContractors)}
+                {centerPanelWithRows(manageContractors)}
+                {centerPanelWithTable(tablePanel)}
+              </div>
             </div>
-        </div>
-    );
-  }
-}
-
-//screen to view contracotr managment
-export default class ContractorManagmentScreen extends Component {
-  render(){
-    return(
-      <div>
-        <Navigation/>
-        <ContractorManagment/>
+          </div>
       </div>
     );
   }

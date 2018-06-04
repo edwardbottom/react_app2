@@ -1,6 +1,7 @@
 //imports react 
 import React, { Component } from 'react';
 
+//creates a search bar on the right side of the screen using an object with a router and placeholder
 export function rightSearchBar(props){
   return(
     <form className="navbar-form navbar-right" action={props.router}>

@@ -8,6 +8,7 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 
+//random data
 let one = new Object();
 one.route = "link";
 one.header = "Change User Password";
@@ -110,7 +111,9 @@ searchBar.router = "phpIsTheWorst";
 searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
-export default class DynamicBodyScreen extends React.Component {
+
+//class to render the usertools screen
+export default class UserToolsScreen extends React.Component {
   render() {
     return (
       <div>

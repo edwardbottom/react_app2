@@ -8,6 +8,7 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 
+//random data
 let one = new Object();
 one.route = "link";
 one.header = "Revision to Furniture, Equipment, and Vehicle Budget Requests";
@@ -91,7 +92,9 @@ searchBar.router = "phpIsTheWorst";
 searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
-class DynamicBody extends React.Component {
+
+//renders the budget request screen
+export default class BudgetRequestsScreen extends React.Component {
   render() {
     return (
       <div>
@@ -105,14 +108,4 @@ class DynamicBody extends React.Component {
   }
 }
 
-export default class DynamicScreen extends Component {
-  render(){
-    return(
-      <div>
-        {/*<Navigation/>*/}
-        <DynamicBody/>
-      </div>
-    );
-  }
-}
 
