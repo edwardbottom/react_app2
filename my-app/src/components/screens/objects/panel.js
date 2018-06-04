@@ -3,19 +3,48 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {table, tableWithoutHeader} from 'table';
 
+
 //hello world function
 export function welcome(props){
 	return <h1>Hello, {props.name}</h1>;
 }
 
+//todo: modify for more types of input
+export function input(props){
+  if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("placeholder")){
+    return(
+      <div>
+        <input type={props.type} id={props.id} placeholder={props.placeholder}></input>
+      </div>
+    );
+  }
+  else if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("class") && props.hasOwnProperty("value")){
+    return(
+      <div>
+        <input type={props.type} id={props.id} className={props.placeholder} value={props.value}></input>
+      </div>
+    );
+  }
+}
+
 //creates a panel using an object with a route, header, and body
 export function panel(props){
-	return(
-      	<div className="panel panel-success">
-        	<div className="panel-heading"><a href={props.route}>{props.header}</a></div>
-        	<div className="panel-body">{props.body}</div>
+  if(props.hasOwnProperty("target")){
+    return(
+        <div className="panel panel-success">
+          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}>{props.header}</a></div>
+          <div className="panel-body">{props.body}</div>
         </div>
     );
+  }
+  else{
+    return(
+        <div className="panel panel-success">
+          <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
+          <div className="panel-body">{props.body}</div>
+        </div>
+    );
+  }
 }
 
 //creates a panel with a centered header using an object with a route, header and body
@@ -28,6 +57,26 @@ export function centerPanel(props){
 	)
 }
 
+export function collapsePanel(props){
+  return(
+    <div className="panel panel-success">
+      <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
+        <div className="panel-body">
+          <a data-toggle="collapse" data-target={props.target}>{props.description}</a>
+          <br/>
+          <br/>
+          <div id={props.id} className="collapse">
+              <form>
+                {props.inputArray.map((inputObj, index) =>
+                  input(inputObj)
+                )}
+              </form><br/>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+    </div>
+  )
+}
 //creates a panel with a cetnered title and a table using a route, header, and array of objects with 
 //a task and description
 export function centerPanelWithTable(props){
@@ -68,11 +117,11 @@ export function centerPanelWithRows(props){
             			{props.body.map((rowObj, index) => 
             				<div>
             					<div className="col-md-6">{rowObj.task}</div>
-                        		<div className="col-md-6">{rowObj.description}</div>
-                        		<br/>
-                        		<br/>
-                        	</div>
-            			)}
+                      <div className="col-md-6">{rowObj.description}</div>
+                      <br/>
+                      <br/>
+                    </div>
+            			 )}
             		</div>
             	</div>
         	</div>
@@ -110,7 +159,7 @@ export function createPanels(list){
 			<hr/>
           		{list.map((pan, index) =>
               		panel(pan)
-          		)};
+          		)}
         </div>
 	);
 }

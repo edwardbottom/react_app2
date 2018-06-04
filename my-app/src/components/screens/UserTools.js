@@ -1,18 +1,26 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import {panel, createPanels, centerPanel} from './objects/panel';
+import {panel, createPanels, centerPanel, collapsePanel} from './objects/panel';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
 import {button, dropDownButton} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
+import {input, modalButton, basicModal} from './objects/forms';
 
 //random data
 let one = new Object();
-one.route = "link";
-one.header = "Change User Password";
+one.route = "#";
+one.header = "Change User Password (modal)";
+one.target = "#change-password-modal";
 one.body = "Changes a Users Password When Clicked";
+let onee = new Object();
+onee.route = "#";
+onee.header = "Change User Password (non modal)";
+//onee.target = "#change-password-modal";
+onee.inputArray = [];
+onee.body = "Changes a Users Password When Clicked";
 let two= new Object();
 two.route = "link";
 two.header = "Unix Access"
@@ -37,6 +45,7 @@ six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRI
 
 let list = [];
 list.push(one);
+list.push(onee);
 list.push(two);
 list.push(three);
 list.push(four);
@@ -112,6 +121,37 @@ searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
 
+let changePasswordModal = new Object();
+changePasswordModal.header = "Change User Password";
+changePasswordModal.id = "change-password-modal";
+changePasswordModal.inputArray = [];
+let username = new Object();
+username.type = "text";
+username.id = "username";
+username.placeholder = "username";
+let oldPassword = new Object();
+oldPassword.type = "password";
+oldPassword.id = "oldPassword";
+oldPassword.placeholder = "old password";
+let newPassword = new Object();
+newPassword.type = "password";
+newPassword.id = "newPassword";
+newPassword.placeholder = "new password";
+let reNewPassword = new Object();
+reNewPassword.type = "password";
+reNewPassword.id = "reNewPassword";
+reNewPassword.placeholder = "new password";
+changePasswordModal.inputArray.push(username);
+changePasswordModal.inputArray.push(oldPassword);
+changePasswordModal.inputArray.push(newPassword);
+changePasswordModal.inputArray.push(reNewPassword);
+onee.inputArray.push(username);
+onee.inputArray.push(oldPassword);
+onee.inputArray.push(newPassword);
+onee.inputArray.push(reNewPassword);
+onee.target="#change-user-password";
+onee.description="Changes a Users Password When Clicked";
+onee.id = "change-user-password";
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {
@@ -122,6 +162,8 @@ export default class UserToolsScreen extends React.Component {
             {headerAndDescription(textObj)}
             {header(headerObj)}
             {createPanels(list)}
+            {collapsePanel(onee)}
+            {basicModal(changePasswordModal)}
           </div>
       </div>
     );
