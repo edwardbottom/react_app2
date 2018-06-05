@@ -17,10 +17,14 @@ export default class LoginScreen extends React.Component {
           align-items: center;\
         }\
       "}
+      <br/>
+      <br/>
       </style>
         <center>
-          <img src="https://s11284.pcdn.co/wp-content/uploads/2017/05/centurylink_logo-250x250.png" alt="CenturyLink Logo"></img>
+          <img src="https://www.comaudit.com/wp-content/uploads/2016/01/CenturyLink-logo.jpg" alt="CenturyLink Logo"></img>
         </center>
+        <br/>
+        <br/>
           <div className="container">
               <div class="col-lg-3 col-lg-3">
               <div class="large-box">
