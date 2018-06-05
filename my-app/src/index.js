@@ -16,6 +16,7 @@ import RealEstateScreen from './components/screens/RealEstate'
 import VoiceAndDataServicesScreen from './components/screens/VoiceAndDataServices'
 import DynamicScreen from './components/screens/Dynamic'
 import LoginScreen from './components/screens/Login'
+import searchScreen from './components/screens/search'
 
 //renders the routes to transfer data between screens
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route path="/realestate" component={RealEstateScreen} />
         <Route path="/voiceanddataservices" component={VoiceAndDataServicesScreen} />
         <Route path="/dynamic" component={DynamicScreen} />
+        <Route path="/search" component={searchScreen}/>
         <Route exact path="/" component={LoginScreen} />
       </div>
   </Router>,

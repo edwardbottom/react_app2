@@ -1,10 +1,6 @@
 //imports react libraries and class imports
 import React, { Component } from 'react';
 
-
-const style1 = {
-  width: "20%"
-};
 //renders a static login screen
 export default class LoginScreen extends React.Component {
   render() {
