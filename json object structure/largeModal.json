@@ -1,0 +1,21 @@
+{
+  "largeModal": {
+    "id": "modalID",
+    "header": "modalHeader",
+    "inputArray": [
+      {
+        "inputObj1": {
+          "type: input": {},
+          "id:text": {},
+          "placeholder:text": {}
+        },
+        "inputObj2": {
+          "type: input": {},
+          "id:text": {},
+          "class:text": {},
+          "value:buttonLable": {}
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "dropDownButton": {
+    "id": "idOfButton",
+    "description": "textOnButton",
+    "list": [
+      {
+        "dropDownIteam1": {
+          "path": "link/pathOfButton",
+          "description": "textOnButton"
+        },
+        "dropDownIteam2": {
+          "path": "link/pathOfButton",
+          "description": "textOnButton"
+        }
+      }
+    ]
+  }
+}

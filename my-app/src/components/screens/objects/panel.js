@@ -147,7 +147,7 @@ export function linksPanel(props){
             	<ul>
             		{props.linkList.map((linkObj, index) =>
               			link(linkObj)
-          			)};
+          			)}
           		</ul>
             </div>
         </div>
@@ -158,11 +158,10 @@ export function linksPanel(props){
 export function createPanels(list){
 	return (
 		<div>
-			<hr/>
-          		{list.map((pan, index) =>
-              		panel(pan)
-          		)}
-        </div>
+      {list.map((pan, index) =>
+        panel(pan)
+      )}
+    </div>
 	);
 }
 
@@ -173,7 +172,7 @@ export function createCenterPanels(list){
 			<hr/>
           		{list.map((pan, index) =>
               		centerPanel(pan)
-          		)};
+          		)}
         </div>
 	);
 }

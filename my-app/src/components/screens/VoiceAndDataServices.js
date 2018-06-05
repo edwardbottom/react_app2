@@ -84,9 +84,9 @@ naveight.path= "/voiceanddataservices"
 naveight.description="Voice and Data Services"
 
 let navnine = new Object();
-navnine.id= "dynamic_screen"
-navnine.path= "/dynamic"
-navnine.description="Dynamic"
+navnine.id= "logout"
+navnine.path= "/"
+navnine.description="Logout"
 
 navItems.push(navone);
 navItems.push(navtwo);

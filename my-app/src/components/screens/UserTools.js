@@ -7,7 +7,7 @@ import {button, dropDownButton} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
-import {input, modalButton, basicModal} from './objects/forms';
+import {input, modalLink, basicModal, modalButton} from './objects/forms';
 
 //random data
 let one = new Object();
@@ -100,9 +100,9 @@ naveight.path= "/voiceanddataservices"
 naveight.description="Voice and Data Services"
 
 let navnine = new Object();
-navnine.id= "dynamic_screen"
-navnine.path= "/dynamic"
-navnine.description="Dynamic"
+navnine.id= "logout"
+navnine.path= "/"
+navnine.description="Logout"
 
 navItems.push(navone);
 navItems.push(navtwo);
@@ -152,6 +152,25 @@ onee.inputArray.push(reNewPassword);
 onee.target="#change-user-password";
 onee.description="Changes a Users Password When Clicked";
 onee.id = "change-user-password";
+
+let addToWorkFlowModal = new Object();
+addToWorkFlowModal.header = "Add to Work Flow";
+addToWorkFlowModal.id = "add-to-workflow-modal";
+addToWorkFlowModal.inputArray = [];
+let taskName = new Object();
+taskName.type = "text";
+taskName.id = "task";
+taskName.placeholder = "Task Name";
+let taskDescription = new Object();
+taskDescription.type = "text";
+taskDescription.id = "taskDescription";
+taskDescription.placeholder = "Task Description";
+addToWorkFlowModal.inputArray.push(taskName);
+addToWorkFlowModal.inputArray.push(taskDescription);
+
+let workFlowModalButton = new Object();
+workFlowModalButton.target = "#add-to-workflow-modal";
+workFlowModalButton.text = "Add to Work Flow"
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {
@@ -161,9 +180,13 @@ export default class UserToolsScreen extends React.Component {
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}
-            {createPanels(list)}
+            {modalButton(workFlowModalButton)}
+            <br/>
+            <br/>
             {collapsePanel(onee)}
+            {createPanels(list)}
             {basicModal(changePasswordModal)}
+            {basicModal(addToWorkFlowModal)}
           </div>
       </div>
     );

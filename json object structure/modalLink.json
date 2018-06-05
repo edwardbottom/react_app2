@@ -1,0 +1,7 @@
+{
+  "modalLink": {
+    "link": "linkToModal/URL",
+    "target": "#modalID",
+    "text": "buttonLable"
+  }
+}

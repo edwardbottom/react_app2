@@ -1,0 +1,23 @@
+{
+  "collapsePanel": {
+    "route": "linkForHeader",
+    "header": "modalHeader",
+    "target": "#collapseID",
+    "body": "textForModalBody",
+    "inputArray": [
+      {
+        "inputObj1": {
+          "type": "input",
+          "id": "idOfObj",
+          "placeHolder": "textBoxPlaceHolder"
+        },
+        "inputObj2": {
+          "type": "input",
+          "id": "idOfObj",
+          "placeHolder": "textBoxPlaceHolder",
+          "value": "text"
+        }
+      }
+    ]
+  }
+}

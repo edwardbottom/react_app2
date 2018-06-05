@@ -1,0 +1,6 @@
+{
+  "buttonWithLink": {
+    "target": "buttonTarget",
+    "text": "buttonText"
+  }
+}

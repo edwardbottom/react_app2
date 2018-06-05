@@ -1,5 +1,6 @@
 //react libraries and imports
 import React from 'react';
+import 'babel-polyfill';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
@@ -14,6 +15,7 @@ import ContractorManagementScreen from './components/screens/ContractorManagemen
 import RealEstateScreen from './components/screens/RealEstate'
 import VoiceAndDataServicesScreen from './components/screens/VoiceAndDataServices'
 import DynamicScreen from './components/screens/Dynamic'
+import LoginScreen from './components/screens/Login'
 
 //renders the routes to transfer data between screens
 ReactDOM.render(
@@ -28,7 +30,7 @@ ReactDOM.render(
         <Route path="/realestate" component={RealEstateScreen} />
         <Route path="/voiceanddataservices" component={VoiceAndDataServicesScreen} />
         <Route path="/dynamic" component={DynamicScreen} />
-        <Route exact path="/" component={HomeScreen} />
+        <Route exact path="/" component={LoginScreen} />
       </div>
   </Router>,
   document.getElementById('root')

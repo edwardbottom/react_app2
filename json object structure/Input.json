@@ -1,0 +1,18 @@
+{
+  "inputObj": {
+    "type": "input",
+    "id": "text",
+    "placeholder": "text"
+  }
+}
+
+
+
+{
+  "inputObj": {
+    "type": "input",
+    "id": "text",
+    "class": "text",
+    "value": "text"
+  }
+}

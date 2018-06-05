@@ -21,7 +21,7 @@ export function createNavBar(props){
             </div>
           {/*navigation bar links*/}
           <ul className="nav navbar-nav">
-            <hr/>
+            {/*<hr/>*/}
 				{props.list.map((navObj, index) =>
     				navIteam(navObj)
 				)};

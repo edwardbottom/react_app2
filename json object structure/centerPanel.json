@@ -1,0 +1,7 @@
+{
+  "centerPanel": {
+    "route": "linkForHeader",
+    "header": "modalHeader",
+    "body": "textForModalBody"
+  }
+}

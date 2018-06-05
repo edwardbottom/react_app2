@@ -1,0 +1,6 @@
+{
+  "rightSearchBar": {
+    "router": "/action",
+    "placeHolder": "textboxPlaceHolder"
+  }
+}

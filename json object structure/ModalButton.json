@@ -1,0 +1,6 @@
+{
+  "modalButton": {
+    "target": "#modalID",
+    "text": "buttonLable"
+  }
+}

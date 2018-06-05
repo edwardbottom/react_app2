@@ -1,0 +1,16 @@
+{
+  "panel": {
+    "route": "linkForHeader",
+    "target": "modalID",
+    "header": "modalHeader",
+    "body": "textForModalBody"
+  }
+}
+
+{
+  "panel": {
+    "route": "linkForHeader",
+    "header": "modalHeader",
+    "body": "textForModalBody"
+  }
+}
