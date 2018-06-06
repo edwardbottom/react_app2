@@ -112,7 +112,7 @@ searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
 
-//renders teh access request screen
+//renders the access request screen
 export default class AccessRequestScreen extends React.Component {
   render() {
     return (

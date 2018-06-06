@@ -122,6 +122,8 @@ tablePanel.tableContents.push(rowObject);
 tablePanel.tableContents.push(rowObject);
 tablePanel.tableContents.push(rowObject);
 
+//renders a screen that will not be used in the ui, but is used during development 
+//to test react features
 export default class DynamicBodyScreen extends React.Component {
   render() {
     return (

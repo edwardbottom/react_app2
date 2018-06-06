@@ -32,6 +32,7 @@ export function panel(props){
   if(props.hasOwnProperty("target")){
     return(
         <div className="panel panel-success">
+        {/*modal panel*/}
           <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}>{props.header}</a></div>
           <div className="panel-body">{props.body}</div>
         </div>
@@ -40,6 +41,7 @@ export function panel(props){
   else{
     return(
         <div className="panel panel-success">
+          {/*link panel*/}
           <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
           <div className="panel-body">{props.body}</div>
         </div>
@@ -131,7 +133,7 @@ export function centerPanelWithRows(props){
 	)
 }
 
-//helper funciton to create a link using a url and text
+//helper function to create a link using a url and text
 function link(props){
 	return(
 		<li><a href={props.url}>{props.text}<br/></a></li>
@@ -154,7 +156,7 @@ export function linksPanel(props){
 		)
 }
 
-//creates multiple panels using an array of panel objects
+//creates multiple panels using an array of panel objects and the panel function
 export function createPanels(list){
 	return (
 		<div>

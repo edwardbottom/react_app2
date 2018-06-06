@@ -171,6 +171,8 @@ addToWorkFlowModal.inputArray.push(taskDescription);
 let workFlowModalButton = new Object();
 workFlowModalButton.target = "#add-to-workflow-modal";
 workFlowModalButton.text = "Add to Work Flow"
+
+
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {

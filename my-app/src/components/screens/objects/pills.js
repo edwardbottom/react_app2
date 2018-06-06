@@ -10,6 +10,7 @@ function createPill(props){
 	);
 }
 
+//creates pills using an object with an array of pill objects 
 export function createPills(props){
 	return(
 		<div>

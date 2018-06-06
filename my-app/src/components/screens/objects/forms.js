@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 //todo: modify for more types of input
+//takes in the parameters for an input value and returns an approiate form of input
 export function input(props){
   if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("placeholder")){
     return(

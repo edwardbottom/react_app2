@@ -6,6 +6,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <div>
+        {/*css to center the panel for the login form*/}
         <style>{"\
         .container{\
           display: flex;\
@@ -16,12 +17,14 @@ export default class LoginScreen extends React.Component {
       <br/>
       <br/>
       </style>
+    {/*tentative image logo*/}
         <center>
           <img src="https://www.comaudit.com/wp-content/uploads/2016/01/CenturyLink-logo.jpg" alt="CenturyLink Logo"></img>
         </center>
         <br/>
         <br/>
           <div className="container">
+        {/*login form and panel*/}
               <div class="col-lg-3 col-lg-3">
               <div class="large-box">
                 <div className="panel panel-success">
