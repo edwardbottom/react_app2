@@ -112,6 +112,12 @@ searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
 
+let largeModalPanel = new Object();
+largeModalPanel.route ="#";
+largeModalPanel.target="#application-access-v2-modal";
+largeModalPanel.header = "Application Access V2 (Large Modal)";
+largeModalPanel.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
+
 //renders the access request screen
 export default class AccessRequestScreen extends React.Component {
   render() {
@@ -121,6 +127,7 @@ export default class AccessRequestScreen extends React.Component {
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}
+            {panel(largeModalPanel)}
             {createPanels(list)}
           </div>
       </div>

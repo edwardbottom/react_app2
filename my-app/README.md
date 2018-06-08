@@ -11,3 +11,9 @@ Once on your desktop, open command line and make sure you are using the C drive.
 Next, you will need to enter the directory that the React App is stored in. To do this type in the command 'cd Users'. The command line should show C://Users. Then type ' cd your-username', 'cd Documents', 'cd GitHub', 'cd react_app2', and  then 'cd my_app'. 
 
 The file path should look like this: "C://Users/'your-username'/Documents/GitHub/react_app2/my_app". If it does type in the command "npm start" which should run the react application on your local host server from port 3000 and make it accessible on the link "localhost:3000" in any browser. 
+
+
+##Running the proxy REST API
+In order to run the sample REST API in this project, you will be using the json-server package for node.js. The documentation for the server can be found [here](https://github.com/typicode/json-server) . If you forked this repo, then you most likely should already have it in your repository in the node_modules folder. If it is not in your node modules folder, you will need to install it using npm install json-server. 
+
+To run the server, begin by entering the directory of server.js. Instructions for this are detailed above, but instead of using 'cd my_app', you should use 'cd SampleServer'. You should then be in the correct directory. Then type in json-server basic.json --port 3004. The server should then start and be accessible from [localhost:3004](localhost:3004) . 

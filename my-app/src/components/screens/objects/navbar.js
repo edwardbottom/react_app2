@@ -22,9 +22,9 @@ export function createNavBar(props){
           {/*navigation bar links*/}
           <ul className="nav navbar-nav">
             {/*<hr/>*/}
-				{props.list.map((navObj, index) =>
-    				navIteam(navObj)
-				)};
+				    {props.list.map((navObj, index) =>
+    				  navIteam(navObj)
+				    )};
           </ul>
         {/*search bar */}
         {rightSearchBar(props.searchbar)}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WSS CenturyLink</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!--the div tag react renders a section of the app in -->
+    <div id="id01"></div>
+
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "http://localhost:3004/profile";
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myFunction(myArr);
+        }
+      };
+      xmlhttp.open("POST", url, true);
+      xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+      xmlhttp.send({encodeURIComponent(name) + "=" + encodeURIComponent(code)}.join('&');
+
+      function myFunction(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<a href="' + arr[i].url + '">' + 
+            arr[i].display + '</a><br>';
+        }
+        document.getElementById("id01").innerHTML = arr;
+      }
+    </script>
+
+  </body>
+
+</html>

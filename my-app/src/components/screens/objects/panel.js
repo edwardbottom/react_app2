@@ -33,7 +33,7 @@ export function panel(props){
     return(
         <div className="panel panel-success">
         {/*modal panel*/}
-          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}>{props.header}</a></div>
+          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}><strong>{props.header}</strong></a></div>
           <div className="panel-body">{props.body}</div>
         </div>
     );
@@ -42,7 +42,7 @@ export function panel(props){
     return(
         <div className="panel panel-success">
           {/*link panel*/}
-          <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
+          <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
           <div className="panel-body">{props.body}</div>
         </div>
     );
@@ -53,7 +53,7 @@ export function panel(props){
 export function centerPanel(props){
 	return(
 		<div className="panel panel-success">
-            <div className="panel-heading"><a href={props.route}><center>{props.header}</center></a></div>
+            <div className="panel-heading"><a href={props.route}><strong><center>{props.header}</center></strong></a></div>
             <div className="panel-body">{props.body}</div>
         </div>
 	)
@@ -62,25 +62,30 @@ export function centerPanel(props){
 //creates a collapisble panel using an object with a route, header, targer, description, 
 //and array of input objects
 export function collapsePanel(props){
+  function submitChanges(){
+    alert("Changes Saved");
+  }
   return(
     <div className="panel panel-success">
-      <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
-        <div className="panel-body">
-          <a data-toggle="collapse" data-target={props.target}>{props.description}</a>
-          <br/>
-          <br/>
-          <div id={props.id} className="collapse">
-              <form>
-                {props.inputArray.map((inputObj, index) =>
-                  input(inputObj)
-                )}
-              </form><br/>
-              <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
-          </div>
+    <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
+      <div className="panel-body">
+        <a data-toggle="collapse" data-target={props.target}>{props.description}</a>
+        <br/>
+        <br/>
+        <div id={props.id} className="collapse">
+          <form>
+            {props.inputArray.map((inputObj, index) =>
+              input(inputObj)
+            )}
+          </form><br/>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onClick={submitChanges}>Submit</button>
         </div>
+      </div>
     </div>
   )
 }
+
 //creates a panel with a cetnered title and a table using a route, header, and array of objects with 
 //a task and description
 export function centerPanelWithTable(props){
@@ -88,7 +93,7 @@ export function centerPanelWithTable(props){
 		<div>
 			<div className="panel panel-success">
             	<div className="panel-heading">
-            		<a href={props.route}><center>{props.header}</center></a>
+            		<a href={props.route}><center><strong>{props.header}</strong></center></a>
             	</div>
             	<div className="panel-body">
             		<table className="table table-striped table-bordered table-hover">
@@ -113,11 +118,11 @@ export function centerPanelWithRows(props){
 	return(
 		<div>
 			<div className="panel panel-success">
-            	<div className="panel-heading">
-            		<a href={props.route}><center>{props.header}</center></a>
-            	</div>
-            	<div className="panel-body">
-            		<div className="row">
+        <div className="panel-heading">
+          <a href={props.route}><center><strong>{props.header}</strong></center></a>
+        </div>
+        <div className="panel-body">
+          <div className="row">
             			{props.body.map((rowObj, index) => 
             				<div>
             					<div className="col-md-6">{rowObj.task}</div>
@@ -144,7 +149,7 @@ function link(props){
 export function linksPanel(props){
 	return(
 		<div className="panel panel-success">
-            <div className="panel-heading"><a href={props.route}>{props.header}</a></div>
+            <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
             <div className="panel-body">
             	<ul>
             		{props.linkList.map((linkObj, index) =>

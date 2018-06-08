@@ -1,7 +1,10 @@
 //imports react 
 import React, { Component } from 'react';
+import {rightSearchBar} from './SearchBar';
+import {table} from './table';
 
-//todo: modify for more types of input
+
+//todo: modify for more types of input and more json documentation
 //takes in the parameters for an input value and returns an approiate form of input
 export function input(props){
   if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("placeholder")){
@@ -18,6 +21,78 @@ export function input(props){
       </div>
     );
   }
+  else if(props.hasOwnProperty("type") && props.hasOwnProperty("name") && props.hasOwnProperty("id")){
+    return(
+      <div class="radio">
+        <label><input type={props.type} className={props.class} id={props.id}>Non-Human Request</input></label>
+      </div>
+    );
+  }
+}
+
+//todo: create json object file for this and comment
+export function radioForm(props){
+  return (
+   <form>
+      <div id="radio_form" style="text-align:center">
+        <strong><p>{props.title}</p></strong>
+          <form>
+            {props.inputArray.map((inputObj, index) =>
+              input(inputObj)
+            )}
+          </form>
+        </div>
+    </form>
+  )
+}
+
+//todo: document with json
+export function formGroupColSize(props){
+  return(
+    <div className="form-group">
+      <div className={props.colSize}>
+        {props.inputArray.map((inputObj, index) =>
+          <div>
+            <label for={inputObj.id}>{inputObj.label}</label>
+            <input type={inputObj.type} className={inputObj.className} id={inputObj.id} placeholder={inputObj.placeholder}></input>
+          </div>
+        )}
+        <div>
+          <button type="button" class="btn btn-success" id={props.buttonId}>{props.buttonLabel}</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+//todo: make json object
+function modalTableData(props){
+  return(
+    <tr>
+      <td class="summary-heading">{props.name}</td>
+      <td class="summary-content">{props.description}</td>
+    </tr>
+  )
+}
+
+//todo: make json object
+export function modalTable(props){
+  return(
+    <div class={props.colSize}>
+      <div class="panel panel-success">
+      <div class="panel-heading">{props.table}</div>
+        <div class="panel-body ">
+          <table class="table table-condensed table-summary table-borderless ">
+            <tbody>
+              {props.inputArray.map((inputObj, index) =>
+                modalTableData(inputObj)
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 //creates a link to summon a modal
@@ -34,8 +109,35 @@ export function modalButton(props){
     )
 }
 
+// export function complexModal(props){
+//   return(
+//     <div>
+//       <center>
+//         <div id= {props.id} class="modal-content modal-md">
+//           <div className="modal-content">
+//             <div className="modal-header">
+//               <button type="button" className="close" data-dismiss="modal">&times;</button>
+//               <h4 className="modal-title">{props.title}</h4>
+//             </div>
+//             <div className="modal-body">
+//               {props.inputArray.map((, index) =>
+//                 input(inputObj)
+//               )}
+//             </div>
+//             <div className="modal-footer">
+//               <button type="button" className="btn btn-success" data-dismiss="modal">Submit</button>
+//             </div>
+//           </div>
+//         </div>
+//       </center>
+//     </div>
+//   )
+// }
 //creates a basic modal with no header or footer and a sumbit button
 export function basicModal(props){
+  function confirmHandler(){
+    alert("Changes Saved");
+  }
   return(
     <center>
       <div id={props.id} class="modal fade modal-md" role="dialog">
@@ -48,7 +150,8 @@ export function basicModal(props){
                   input(inputObj)
                 )}
               </form><br/>
-              <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onClick={confirmHandler}>Submit Changes</button>
             </div>
           </div>
         </div>

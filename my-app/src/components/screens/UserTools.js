@@ -8,6 +8,7 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 import {input, modalLink, basicModal, modalButton} from './objects/forms';
+import {request} from './services/requests';
 
 //random data
 let one = new Object();
@@ -15,6 +16,8 @@ one.route = "#";
 one.header = "Change User Password (modal)";
 one.target = "#change-password-modal";
 one.body = "Changes a Users Password When Clicked";
+
+
 let onee = new Object();
 onee.route = "#";
 onee.header = "Change User Password (non modal)";
@@ -45,7 +48,7 @@ six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRI
 
 let list = [];
 list.push(one);
-list.push(onee);
+// list.push(onee);
 list.push(two);
 list.push(three);
 list.push(four);
@@ -172,10 +175,26 @@ let workFlowModalButton = new Object();
 workFlowModalButton.target = "#add-to-workflow-modal";
 workFlowModalButton.text = "Add to Work Flow"
 
+let requestObj = new Object();
+requestObj.requestType = "GET";
+requestObj.url = "http://localhost:3004/profile";
+
+let requestObj2 = new Object();
+requestObj2.requestType = "GET";
+requestObj2.url = "http://localhost:3004/comments"
+
+
+
 
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {
+    function getHandler(){
+      {request(requestObj)}
+    }
+    function getHandlerArr(){
+      {request(requestObj2)}
+    }
     return (
       <div>
           {createNavBar(navBarObj)}
@@ -189,6 +208,8 @@ export default class UserToolsScreen extends React.Component {
             {createPanels(list)}
             {basicModal(changePasswordModal)}
             {basicModal(addToWorkFlowModal)}
+            <button onClick={getHandler}>Request</button>
+            <button onClick={getHandlerArr}>Request Array</button>
           </div>
       </div>
     );

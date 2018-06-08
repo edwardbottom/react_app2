@@ -47,3 +47,12 @@ export function dropDownButton(props){
     )
 }
 
+//todo: make json object documentation for this
+export function buttonWithHandeler(props){
+  return(
+    <div>
+      <button className="btn btn-success" onClick={props.handler}> {props.description} </button>
+    </div>
+    )
+}
+

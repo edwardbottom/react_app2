@@ -3,22 +3,154 @@
   <head>
     <title>WSS CenturyLink</title>
     <meta charset="utf-8">
+    <!--jquery setup -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--bootstrap and mobile setup -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--React Setup -->
+    <script src="js/reactjs/main.js" type = "text/babel"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
   </head>
   <body>
+    <!--sets the color of the cursor on active tables and dropdown menus --> 
+    <style>
+      .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+          background-color: #bbff99;
+        }
+
+        .dropdown-menu>li>a:hover {
+          background-color: #bbff99;
+        }
+
+        /*.panel > .panel-heading {
+          background-image: none;
+          background-color: #90FF90;
+          color: white;
+        }*/
+    </style>
     <!--runs if javascript is not enabled in the browser -->
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <!--the div tag react renders a section of the app in -->
     <div id="root"></div>
+
+
+
+    <!--hard coded large modal -->
+    <!-- pop up modal for application access v2 modal -->
+  <div class="modal fade" id="application-access-v2-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!--modal form for access-->
+      <div class="modal-body">
+      <h2>New Application Access Request Form</h2><br>
+      <!--radio buttons -->
+      <form>
+        <div id="radio_form" style="text-align:center">
+          <strong><p>Search Type:</p></strong>
+          <div class="radio">
+            <label><input type="radio" name="optradio" id="human_request">Human Request</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio" id="non_human_request">Non-Human Request</label>
+          </div>
+        </div>
+      </form>
+      <!--form to search for a user -->
+      <form>
+          <p> Select User(s) for this search </p>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label for="last_name">Last Name</label>
+              <input type="text" class="form-control input-sm" id="last_name" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label for="first_name">First Name</label>
+              <input type="text" class="form-control input-sm" id="first_name" placeholder="First Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label for="sap_id">Sap ID</label>
+              <input type="text" class="form-control input-sm" id="sap_id" placeholder="SAP ID">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label for="first_name">ADID</label>
+              <input type="text" class="form-control input-sm" id="adid" placeholder="use comma (,) for multiple ADID search">
+            </div>
+          </div>
+          <br>
+          <!--search button for finding a user -->
+          <div class="form-group" style="text-align:right">
+            <button type="button" class="btn btn-success" id="search_user_v2">Search</button>
+          </div>
+          <!--table to display search results -->
+          <div class="col-sm-5">
+            <div class="panel panel-default">
+              <div class="panel-heading">Search Results</div>
+               <div class="panel-body ">
+                  <table class="table table-condensed table-summary table-borderless ">
+                    <tbody>
+                      <tr>
+                        <td class="summary-heading">Search</td>
+                        <td class="summary-content">Results</td>
+                      </tr>
+                      <tr>
+                          <td class="summary-heading">Search</td>
+                        <td>Results</td>
+                      </tr>
+                      <tr>
+                        <td class="summary-heading">Search</td>
+                        <td>Results</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        <!--table to display selected users -->
+        <div class="col-sm-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">Selected Users</div>
+              <div class="panel-body ">
+                <table class="table table-condensed table-summary table-borderless ">
+                  <tbody>
+                    <tr>
+                      <td class="summary-heading">Selected</td>
+                      <td class="summary-content">User</td>
+                    </tr>
+                    <tr>
+                      <td>Selected</td>
+                      <td>User</td>
+                    </tr>
+                    <tr>
+                      <td>Selected</td>
+                      <td>User</td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> <!--end modal body-->
+      </form>
+      <!--stage and submit buttons -->
+       <div class="modal-footer">
+        <button type="button" class="btn" id="stage_application_request_access">Stage Changes</button>
+        <input type="submit " id="submit_application_request_access" class="btn btn-success" value="Submit Changes" data-dismiss="modal">
+      </div>
+    </div>
+  </div>
+</div>
   </body>
 
 </html>
