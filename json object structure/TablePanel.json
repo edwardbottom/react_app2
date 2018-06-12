@@ -5,14 +5,12 @@
     "target": "#collapseID",
     "tableContents": [
       {
-        "tableObj1": {
-          "task": "text",
-          "description": "text"
-        },
-        "tableObj2": {
-          "task": "text",
-          "description": "text"
-        }
+        "task": "text",
+        "description": "text"
+      },
+      {
+        "task": "text",
+        "description": "text"
       }
     ]
   }

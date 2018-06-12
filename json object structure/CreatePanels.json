@@ -2,17 +2,15 @@
   "CreatePanels": {
     "list": [
       {
-        "panleObj1": {
-          "route": "link",
-          "target": "#modalID",
-          "body": "textInBody",
-          "header": "textInHeader"
-        },
-        "panleObj2": {
-          "route": "link",
-          "header": "textInHeader",
-          "body": "textInBody"
-        }
+        "route": "link",
+        "target": "#modalID",
+        "body": "textInBody",
+        "header": "textInHeader"
+      },
+      {
+        "route": "link",
+        "header": "textInHeader",
+        "body": "textInBody"
       }
     ]
   }

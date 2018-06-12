@@ -8,7 +8,9 @@ import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
 import {input, modalLink, basicModal, modalButton} from './objects/forms';
-import {request} from './services/requests';
+import {request, get} from './services/requests';
+import axios from 'axios';
+
 
 //random data
 let one = new Object();
@@ -182,8 +184,6 @@ requestObj.url = "http://localhost:3004/profile";
 let requestObj2 = new Object();
 requestObj2.requestType = "GET";
 requestObj2.url = "http://localhost:3004/comments"
-
-
 
 
 //class to render the usertools screen

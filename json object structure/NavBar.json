@@ -1,54 +1,55 @@
 {
   "navBarObj": {
     "titlePath": "/home",
-    "navItems;": [
+    "list": [
       {
-        "navone": {
-          "id": "my_tasks_listener",
-          "path": "/home",
-          "action": "loadMyTasks()",
-          "description": "My Tasks"
-        },
-        "navtwo": {
-          "id": "access_request_listener",
-          "path": "/accessrequest",
-          "description": "Access Request"
-        },
-        "navthree": {
-          "id": "budget_request_listener",
-          "path": "/budgetrequests",
-          "description": "Budget Request"
-        },
-        "navfour": {
-          "id": "contractor_management_listener",
-          "path": "/contractormanagement",
-          "description": "Contractor Management"
-        },
-        "navfive": {
-          "id": "real_estate_listener",
-          "path": "/realestate",
-          "description": "Real Estate"
-        },
-        "navseven": {
-          "id": "user_tools_listener",
-          "path": "/usertools",
-          "description": "User Tools"
-        },
-        "naveight": {
-          "id": "voice_and_data_services_listener",
-          "path": "/voiceanddataservices",
-          "description": "Voice and Data Services"
-        },
-        "navnine": {
-          "id": "dynamic_screen",
-          "path": "/dynamic",
-          "description": "Dynamic"
-        },
-        "searchBar": {
-          "router": "phpIsTheWorst",
-          "placeholder": "Search WSS System"
-        }
+        "id": "my_tasks_listener",
+        "path": "/home",
+        "action": "loadMyTasks()",
+        "description": "My Tasks"
+      },
+      {
+        "id": "access_request_listener",
+        "path": "/accessrequest",
+        "description": "Access Request"
+      },
+      {
+        "id": "budget_request_listener",
+        "path": "/budgetrequests",
+        "description": "Budget Request"
+      },
+      {
+        "id": "contractor_management_listener",
+        "path": "/contractormanagement",
+        "description": "Contractor Management"
+      },
+      {
+        "id": "real_estate_listener",
+        "path": "/realestate",
+        "description": "Real Estate"
+      },
+      {
+        "id": "user_tools_listener",
+        "path": "/usertools",
+        "description": "User Tools"
+      },
+      {
+        "id": "voice_and_data_services_listener",
+        "path": "/voiceanddataservices",
+        "description": "Voice and Data Services"
+      },
+      {
+        "id": "dynamic_screen",
+        "path": "/dynamic",
+        "description": "Dynamic"
+      },
+      {
+        "router": "phpIsTheWorst",
+        "placeholder": "Search WSS System"
       }
-    ]
+    ],
+    "searchbar":{
+      "placeholder":"Search WSS"
+    }
   }
 }

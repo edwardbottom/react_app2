@@ -2,16 +2,14 @@
   "CreatePanelsCenter": {
     "list": [
       {
-        "panleObj1": {
-          "route": "link",
-          "body": "textInBody",
-          "header": "textInHeader"
-        },
-        "panleObj2": {
-          "route": "link",
-          "header": "textInHeader",
-          "body": "textInBody"
-        }
+        "route": "link",
+        "body": "textInBody",
+        "header": "textInHeader"
+      },
+      {
+        "route": "link",
+        "header": "textInHeader",
+        "body": "textInBody"
       }
     ]
   }

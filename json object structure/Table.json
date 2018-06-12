@@ -2,28 +2,24 @@
   "table": {
     "header": [
       {
-        "headerObj": {
-          "text": {}
-        },
-        "headerObj2": {
-          "text": {}
-        }
+        "text":"header"
+      },
+      {
+        "text":"header"
       }
     ],
     "body": [
       {
-        "rowObj": {
-          "task": "text",
-          "description": "text"
-        },
-        "rowObj2": {
-          "task": "text",
-          "description": "text"
-        },
-        "rowObj3": {
-          "task": "text",
-          "description": "text"
-        }
+        "task": "text",
+        "description": "text"
+      },
+      {
+        "task": "text",
+        "description": "text"
+      },
+      {
+        "task": "text",
+        "description": "text"
       }
     ]
   }

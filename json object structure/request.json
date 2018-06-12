@@ -1,0 +1,6 @@
+{
+  "request": {
+    "url": "link to request",
+    "requestType": "GET/POST/DELETE/PUT"
+  }
+}

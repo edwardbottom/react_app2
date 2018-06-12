@@ -1,6 +1,6 @@
 {
   "link": {
-    "url:urlOfLink": {},
-    "text:textForLink": {}
+    "url" : "urlOfLink",
+    "text" : "textForLink"
   }
 }

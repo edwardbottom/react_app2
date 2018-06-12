@@ -1,143 +1,148 @@
 //imports react libraries and navbar
 import React, { Component } from 'react';
 import Navigation from './Navigation';
-import {panel, createPanels, centerPanel, linksPanel, createCenterPanels, centerPanelWithRows, centerPanelWithTable} from './objects/panel';
+import {panel, createPanels, centerPanel, linksPanel, createCenterPanels, centerPanelWithRows, centerPanelWithTable, collapsePanel} from './objects/panel';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
 import {button, dropDownButton, buttonWithLink} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
-
-let navBarObj = new Object();
-navBarObj.titlePath = "/home";
-let navItems = [];
-let navone = new Object();
-navone.id = "my_tasks_listener"
-navone.path= "/home"
-navone.action= "loadMyTasks();"
-navone.description= "My Tasks";
-
-let navtwo = new Object();
-navtwo.id = "access_request_listener";
-navtwo.path= "/accessrequest";
-navtwo.description="Access Request";
-
-let navthree = new Object();
-navthree.id = "budget_request_listener";
-navthree.path= "/budgetrequests";
-navthree.description="Budget Request";
-
-let navfour = new Object();
-navfour.id = "contractor_management_listener";
-navfour.path= "/contractormanagement";
-navfour.description="Contractor Management";
-
-let navfive = new Object();
-navfive.id = "real_estate_listener";
-navfive.path= "/realestate";
-navfive.description="Real Estate"
-
-let navseven = new Object();
-navseven.id = "user_tools_listener";
-navseven.path= "/usertools";
-navseven.description="User Tools"
-
-let naveight = new Object();
-naveight.id = "voice_and_data_services_listener"
-naveight.path= "/voiceanddataservices"
-naveight.description="Voice and Data Services"
-
-let navnine = new Object();
-navnine.id= "dynamic_screen"
-navnine.path= "/dynamic"
-navnine.description="Dynamic"
-
-navItems.push(navone);
-navItems.push(navtwo);
-navItems.push(navthree);
-navItems.push(navfour);
-navItems.push(navfive);
-navItems.push(navseven);
-navItems.push(naveight);
-navItems.push(navnine);
-
-navBarObj.list = navItems;
-
-let searchBar = new Object();
-searchBar.router = "phpIsTheWorst";
-searchBar.placeholder = "Search WSS System";
-
-
-navBarObj.searchbar = searchBar;
-
-let linksHead = new Object();
-linksHead.header = "Important Links";
-
-let linksPanelO = new Object();
-linksPanelO.route = "/route";
-linksPanelO.header = "Important Links";
-
-let linkObj = new Object();
-linkObj.route="www.awebsite.com";
-linkObj.text="this is a link";
-
-linksPanelO.linkList = [];
-linksPanelO.linkList.push(linkObj);
-linksPanelO.linkList.push(linkObj);
-
-let headerObj = new Object();
-headerObj.header = "Work Flow";
-
-let findContractors = new Object();
-findContractors.header = "Find Contractors";
-
-let provisionContractors = new Object();
-provisionContractors.header = "Provision Contractors";
-provisionContractors.body = [];
-let rowObj = new Object();
-rowObj.task = "This is a task";
-rowObj.description = "that will come from the database";
-provisionContractors.body.push(rowObj);
-provisionContractors.body.push(rowObj);
-provisionContractors.body.push(rowObj);
-
-let manageContractors = new Object();
-manageContractors.header = "Manage Contractors";
-manageContractors.body = [];
-manageContractors.body.push(rowObj);
-manageContractors.body.push(rowObj);
-manageContractors.body.push(rowObj);
-
-let tablePanel = new Object();
-tablePanel.header = "Manage Contractors";
-tablePanel.route = "/route";
-tablePanel.tableContents = [];
-let rowObject = Object();
-rowObject.task = "A task";
-rowObject.description = "and a description";
-tablePanel.tableContents.push(rowObject);
-tablePanel.tableContents.push(rowObject);
-tablePanel.tableContents.push(rowObject);
-tablePanel.tableContents.push(rowObject);
-tablePanel.tableContents.push(rowObject);
-tablePanel.tableContents.push(rowObject);
+import axios from 'axios';
+import {modalButton, basicModal} from './objects/forms';
+import {get, post, processRequest} from './services/requests';
 
 //renders a screen that will not be used in the ui, but is used during development 
 //to test react features
 export default class DynamicBodyScreen extends React.Component {
+  //creats states of the class
+  state = {
+    comments:[],
+    others:[],
+    headerObj:"",
+    modalButtonObj:"",
+    modalObj:"",
+    headerAndDescription:"",
+    centerPanel:"",
+    tableObj:"",
+    linksPanelObj:"",
+    centerPanelWithRowsObj:"",
+    collapsePanelObj:"",
+    navBarObj:""
+  }
+
+//runs the get requests
+componentWillMount() {
+    //request for modal object
+    axios.get('http://localhost:3004/modal')
+      .then(res => {
+        const modalObj = res.data;
+        this.setState({ modalObj: modalObj });
+      })
+    //request for multiple panels
+    axios.get(`http://localhost:3004/CreatePanels`)
+      .then(res => {
+        const comments = res.data;
+        this.setState({ comments });
+      })
+    //request for multiple panels
+    axios.get('http://localhost:3004/CreatePanels')
+      .then(res => {
+        const others = res.data;
+        this.setState({ others });
+      })
+    //request for a header object
+    axios.get('http://localhost:3004/header')
+      .then(res => {
+        const headerObj = res.data.headerObj;
+        this.setState({ headerObj });
+      })
+    //request for a modal button
+    axios.get('http://localhost:3004/modalButton')
+      .then(res => {
+        const modalButtonObj = res.data;
+        this.setState({ modalButtonObj });
+      })
+    //request for a ehader and description object
+    axios.get('http://localhost:3004/headerAndDescription')
+      .then(res => {
+        const headerAndDescription = res.data;
+        this.setState({ headerAndDescription })
+      })
+      //request for a centered panel
+     axios.get('http://localhost:3004/panel')
+      .then(res => {
+        const centerPanel = res.data;
+        this.setState({ centerPanel })
+      })
+      //request for a table
+      axios.get('http://localhost:3004/table')
+        .then(res => {
+          const tableObj = res.data;
+          this.setState({ tableObj })
+        })
+      //request for a panel with links
+      axios.get('http://localhost:3004/linksPanel')
+        .then(res => {
+          const linksPanelObj = res.data;
+          this.setState({ linksPanelObj })
+        })
+      //request for a centered panel with rows
+      axios.get("http://localhost:3004/CenterPanelWithRows")
+        .then(res => {
+          const centerPanelWithRowsObj = res.data;
+          this.setState({ centerPanelWithRowsObj })
+        })
+      //request for a collapsed panel
+      axios.get("http://localhost:3004/collapsePanel")
+        .then(res => {
+          const collapsePanelObj = res.data;
+          this.setState({ collapsePanelObj })
+        })
+      //request for a navbar object
+      axios.get("http://localhost:3004/navBarObj")
+        .then(res => {
+          const navBarObj = res.data;
+          this.setState({ navBarObj })
+        })
+      //example post request, delete later
+      axios.post("http://localhost:3004/pancakes", "pancakes")
+  }
+
   render() {
     return (
       <div>
-          {createNavBar(navBarObj)}
+          {/*creates the navbar */}
+          {this.state && this.state.navBarObj && this.state.navBarObj.list && 
+            this.state.navBarObj.titlePath && <div> {createNavBar(this.state.navBarObj)} </div>}
           <div className="container">
             <div id="Contractor_Management_Screen">
               <div className="container">
-                {header(linksHead)}
-                {linksPanel(linksPanelO)}
-                {header(headerObj)}
-                {centerPanelWithRows(provisionContractors)}
-                {centerPanelWithRows(manageContractors)}
-                {centerPanelWithTable(tablePanel)}
+                {/*creates the header object */}
+                {header(this.state.headerObj)}
+                {/*creates a panel with links*/}
+                {this.state && this.state.linksPanelObj && this.state.linksPanelObj.linkList
+                  && <div> {linksPanel(this.state.linksPanelObj)} </div>}
+                {/*creates the header and description */}
+                {headerAndDescription(this.state.headerAndDescription)}
+                {/*creates a button for a modal */}
+                {modalButton(this.state.modalButtonObj)}
+                <br/><br/>
+                {/*creates multiple panels*/}
+                {createPanels(this.state.comments)}
+                {/*creates a panel with a collapsable dropdown */}
+                {this.state && this.state.collapsePanelObj && this.state.collapsePanelObj.inputArray
+                  && <div> {collapsePanel(this.state.collapsePanelObj)} </div>}
+                {/*creates a panel with rows */}
+                {this.state && this.state.centerPanelWithRowsObj && this.state.centerPanelWithRowsObj.body &&
+                 <div> {centerPanelWithRows(this.state.centerPanelWithRowsObj)}</div>}
+                {/*creates a centered panel*/}
+                {centerPanel(this.state.centerPanel)}
+                {/*creates a table object*/}
+                {this.state && this.state.tableObj && this.state.tableObj.header &&
+                  this.state.tableObj.body && <div> {table(this.state.tableObj)} </div>}
+                {/*creates a basic modal*/}
+                {this.state && this.state.modalObj && this.state.modalObj.inputArray
+                 && <div> {basicModal(this.state.modalObj)} </div>}
               </div>
             </div>
           </div>

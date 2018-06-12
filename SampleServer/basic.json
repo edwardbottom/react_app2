@@ -30,5 +30,192 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "CreatePanels": [
+    {
+      "route": "link",
+      "header": "Change User Password",
+      "body": "This will change the users password"
+    },
+    {
+      "route": "link",
+      "header": "Edward is Awesome",
+      "body": "He made this UI"
+    }
+  ],
+  "header": {
+    "headerObj": {
+      "header": "This Page was Created From a Proxy Server"
+    }
+  },
+  "modalButton": {
+    "target": "#modalID",
+    "text": "Add to Work Flow"
+  },
+  "modal": {
+    "id": "modalID",
+    "header": "Add To Work Flow",
+    "inputArray": [
+      {
+        "type": "input",
+        "id": "username",
+        "placeholder": "username"
+      },
+      {
+        "type": "input",
+        "id": "oldPassword",
+        "placeholder": "Old Password"
+      },
+      {
+        "type": "input",
+        "id": "newPassword",
+        "placeholder": "New Password"
+      },
+      {
+        "type": "input",
+        "id": "reNewPassword",
+        "placeholder": "ReEnter New Password"
+      }
+    ]
+  },
+  "headerAndDescription": {
+    "header": "This is a Header",
+    "description": "This is a Description"
+  },
+  "panel": {
+    "route": "link",
+    "header": "Center Panel",
+    "body": "This is a single panel created from a REST API. "
+  },
+  "table": {
+    "header": [
+      {
+        "text": "Task"
+      },
+      {
+        "text": "Description"
+      }
+    ],
+    "body": [
+      {
+        "task": "task",
+        "description": "description"
+      },
+      {
+        "task": "task",
+        "description": "description"
+      },
+      {
+        "task": "task",
+        "description": "description"
+      }
+    ]
+  },
+  "linksPanel": {
+    "route": "route",
+    "header": "panelHeader",
+    "linkList": [
+      {
+        "url": "https://www.youtube.com/watch?v=dMK_npDG12Q&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMYsLerRmuefo&index=10",
+        "text": "this is a link"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=dMK_npDG12Q&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMYsLerRmuefo&index=10",
+        "text": "this is a link"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=dMK_npDG12Q&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMYsLerRmuefo&index=10",
+        "text": "this is a link"
+      }
+    ]
+  },
+  "CenterPanelWithRows": {
+    "route": "linkForHeader",
+    "header": "modalHeader",
+    "body": [
+      {
+        "task": "task",
+        "description": "description"
+      },
+      {
+        "task": "task",
+        "description": "description"
+      }
+    ]
+  },
+  "collapsePanel": {
+    "route": "linkForHeader",
+    "header": "modalHeader",
+    "target": "#collapseID",
+    "description": "textForModalBody",
+    "id": "collapseID",
+    "inputArray": [
+      {
+        "type": "input",
+        "id": "idOfObj1",
+        "placeHolder": "Username"
+      },
+      {
+        "type": "input",
+        "id": "idOfObj2",
+        "placeHolder": "Password"
+      }
+    ]
+  },
+  "navBarObj": {
+    "titlePath": "/home",
+    "list": [
+      {
+        "id": "my_tasks_listener",
+        "path": "/home",
+        "action": "loadMyTasks()",
+        "description": "My Tasks"
+      },
+      {
+        "id": "access_request_listener",
+        "path": "/accessrequest",
+        "description": "Access Request"
+      },
+      {
+        "id": "budget_request_listener",
+        "path": "/budgetrequests",
+        "description": "Budget Request"
+      },
+      {
+        "id": "contractor_management_listener",
+        "path": "/contractormanagement",
+        "description": "Contractor Management"
+      },
+      {
+        "id": "real_estate_listener",
+        "path": "/realestate",
+        "description": "Real Estate"
+      },
+      {
+        "id": "user_tools_listener",
+        "path": "/usertools",
+        "description": "User Tools"
+      },
+      {
+        "id": "voice_and_data_services_listener",
+        "path": "/voiceanddataservices",
+        "description": "Voice and Data Services"
+      },
+      {
+        "id": "logout_screen",
+        "path": "/",
+        "description": "Logout"
+      },
+      {
+        "router": "phpIsTheWorst",
+        "placeholder": "Search WSS System"
+      }
+    ],
+    "searchbar": {
+      "placeholder": "Search WSS"
+    }
+  },
+  "pancakes": {
+    "pancakes": ""
   }
 }

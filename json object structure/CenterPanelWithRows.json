@@ -4,14 +4,12 @@
     "header": "modalHeader",
     "body": [
       {
-        "rowObj1": {
-          "task": "text",
-          "description": "text"
-        },
-        "rowObj2": {
-          "task": "text",
-          "description": "text"
-        }
+        "task": "text",
+        "description": "text"
+      },
+      {
+        "task": "text",
+        "description": "text"
       }
     ]
   }

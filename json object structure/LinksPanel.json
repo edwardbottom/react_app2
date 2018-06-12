@@ -4,14 +4,12 @@
     "header": "panelHeader",
     "linkList": [
       {
-        "link1": {
-          "url": "urlOfLink",
-          "text": "textForLink"
-        },
-        "link2": {
-          "url": "urlOfLink",
-          "text": "textForLink"
-        }
+        "url": "urlOfLink",
+        "text": "textForLink"
+      },
+      {
+        "url": "urlOfLink",
+        "text": "textForLink"
       }
     ]
   }

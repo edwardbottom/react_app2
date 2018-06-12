@@ -3,20 +3,19 @@
     "route": "linkForHeader",
     "header": "modalHeader",
     "target": "#collapseID",
-    "body": "textForModalBody",
+    "description": "textForModalBody",
+    "id": "collapseID",
     "inputArray": [
       {
-        "inputObj1": {
-          "type": "input",
-          "id": "idOfObj",
-          "placeHolder": "textBoxPlaceHolder"
-        },
-        "inputObj2": {
-          "type": "input",
-          "id": "idOfObj",
-          "placeHolder": "textBoxPlaceHolder",
-          "value": "text"
-        }
+        "type": "input",
+        "id": "idOfObj",
+        "placeHolder": "textBoxPlaceHolder"
+      },
+      {
+        "type": "input",
+        "id": "idOfObj",
+        "placeHolder": "textBoxPlaceHolder",
+        "value": "text"
       }
     ]
   }

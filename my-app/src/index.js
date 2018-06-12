@@ -83,12 +83,10 @@ routes.list.push(routeObj5);
 routes.list.push(routeObj6);
 routes.list.push(routeObj7);
 routes.list.push(routeObj8);
-routes.list.push(routeObj8);
 routes.list.push(routeObj9);
 routes.list.push(routeObj10);
 routes.list.push(routeObj11);
 routes.list.push(routeObj0);
-
 
 //creates one route from a route object with a path and component
 function route(props){

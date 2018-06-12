@@ -1,0 +1,18 @@
+{
+  "createRoutes": {
+    "list": [
+      {
+        "component": "screen",
+        "path": "/pathOfRoute"
+      },
+      {
+        "component": "screen",
+        "path": "/pathOfRoute"
+      },
+      {
+        "component": "screen",
+        "path": "/pathOfRoute"
+      }
+    ]
+  }
+}
