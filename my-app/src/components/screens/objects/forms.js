@@ -10,21 +10,21 @@ export function input(props){
   if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("placeholder")){
     return(
       <div>
-        <input type={props.type} id={props.id} placeholder={props.placeholder}></input>
+        <input type={props.type} id={props.id} placeholder={props.placeholder}></input><br/><br/>
       </div>
     );
   }
 	else if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("class") && props.hasOwnProperty("value")){
     return(
       <div>
-        <input type={props.type} id={props.id} className={props.placeholder} value={props.value}></input>
+        <input type={props.type} id={props.id} className={props.placeholder} value={props.value}></input><br/><br/>
       </div>
     );
   }
   else if(props.hasOwnProperty("type") && props.hasOwnProperty("name") && props.hasOwnProperty("id")){
     return(
       <div class="radio">
-        <label><input type={props.type} className={props.class} id={props.id}>Non-Human Request</input></label>
+        <label><input type={props.type} className={props.class} id={props.id}>Non-Human Request</input></label><br/><br/>
       </div>
     );
   }
@@ -149,9 +149,10 @@ export function basicModal(props){
                 {props.inputArray.map((inputObj, index) =>
                   input(inputObj)
                 )}
-              </form><br/>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+              </form>
               <button type="button" class="btn btn-success" data-dismiss="modal" onClick={confirmHandler}>Submit Changes</button>
+              <p>     </p>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
             </div>
           </div>
         </div>

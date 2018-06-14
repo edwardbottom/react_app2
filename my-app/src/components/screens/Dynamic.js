@@ -15,98 +15,115 @@ import {get, post, processRequest} from './services/requests';
 //to test react features
 export default class DynamicBodyScreen extends React.Component {
   //creats states of the class
-  state = {
-    comments:[],
-    others:[],
-    headerObj:"",
-    modalButtonObj:"",
-    modalObj:"",
-    headerAndDescription:"",
-    centerPanel:"",
-    tableObj:"",
-    linksPanelObj:"",
-    centerPanelWithRowsObj:"",
-    collapsePanelObj:"",
-    navBarObj:""
+  constructor(){
+    super();
+    this.state = {
+      comments:[],
+      others:[],
+      headerObj:"",
+      modalButtonObj:"",
+      modalObj:"",
+      headerAndDescription:"",
+      centerPanel:"",
+      tableObj:"",
+      linksPanelObj:"",
+      centerPanelWithRowsObj:"",
+      collapsePanelObj:"",
+      navBarObj:""
+    }
   }
 
-//runs the get requests
-componentWillMount() {
-    //request for modal object
-    axios.get('http://localhost:3004/modal')
-      .then(res => {
-        const modalObj = res.data;
-        this.setState({ modalObj: modalObj });
-      })
-    //request for multiple panels
-    axios.get(`http://localhost:3004/CreatePanels`)
-      .then(res => {
-        const comments = res.data;
-        this.setState({ comments });
-      })
-    //request for multiple panels
-    axios.get('http://localhost:3004/CreatePanels')
-      .then(res => {
-        const others = res.data;
-        this.setState({ others });
-      })
-    //request for a header object
-    axios.get('http://localhost:3004/header')
-      .then(res => {
-        const headerObj = res.data.headerObj;
-        this.setState({ headerObj });
-      })
-    //request for a modal button
-    axios.get('http://localhost:3004/modalButton')
-      .then(res => {
-        const modalButtonObj = res.data;
-        this.setState({ modalButtonObj });
-      })
-    //request for a ehader and description object
-    axios.get('http://localhost:3004/headerAndDescription')
-      .then(res => {
-        const headerAndDescription = res.data;
-        this.setState({ headerAndDescription })
-      })
-      //request for a centered panel
-     axios.get('http://localhost:3004/panel')
-      .then(res => {
-        const centerPanel = res.data;
-        this.setState({ centerPanel })
-      })
-      //request for a table
-      axios.get('http://localhost:3004/table')
+
+//sets intial states
+componentDidMount() {
+    localStorage.clear();
+   // if(localStorage.getItem('navBarObj') === null || localStorage.getItem('modalObj') === null){
+      //request for modal object
+      axios.get('http://localhost:3004/modal')
         .then(res => {
-          const tableObj = res.data;
-          this.setState({ tableObj })
+          const modalObj = res.data;
+          localStorage.setItem('modalObj', modalObj);
+        })
+      //request for multiple panels
+      axios.get(`http://localhost:3004/CreatePanels`)
+        .then(res => {
+          const comments = res.data;
+          localStorage.setItem('comments', comments);
+        })
+      //request for multiple panels
+      axios.get('http://localhost:3004/CreatePanels')
+        .then(res => {
+          const others = res.data;
+          localStorage.setItem('others', others);
+        })
+      //request for a header object
+      axios.get('http://localhost:3004/header')
+        .then(res => {
+          const headerObj = res.data.headerObj;
+          localStorage.setItem('headerObj',  JSON.stringify(headerObj));
+        })
+      //request for a modal button
+      axios.get('http://localhost:3004/modalButton')
+        .then(res => {
+          const modalButtonObj = res.data;
+          localStorage.setItem('modalButtonObj', modalButtonObj);
+        })
+      //request for a ehader and description object
+      axios.get('http://localhost:3004/headerAndDescription')
+        .then(res => {
+          const headerAndDescription = res.data;
+          localStorage.setItem('headerAndDescription', headerAndDescription);
+        })
+        //request for a centered panel
+      axios.get('http://localhost:3004/panel')
+        .then(res => {
+          const centerPanel = res.data;
+          localStorage.setItem('centerPanel', centerPanel);
         })
       //request for a panel with links
       axios.get('http://localhost:3004/linksPanel')
         .then(res => {
           const linksPanelObj = res.data;
-          this.setState({ linksPanelObj })
+          localStorage.setItem('linksPanelObj', linksPanelObj);
         })
       //request for a centered panel with rows
       axios.get("http://localhost:3004/CenterPanelWithRows")
         .then(res => {
           const centerPanelWithRowsObj = res.data;
-          this.setState({ centerPanelWithRowsObj })
+          localStorage.setItem('centerPanelWithRows', centerPanelWithRows);
         })
       //request for a collapsed panel
       axios.get("http://localhost:3004/collapsePanel")
         .then(res => {
           const collapsePanelObj = res.data;
-          this.setState({ collapsePanelObj })
+          localStorage.setItem('collapsePanelObj', collapsePanelObj);
         })
       //request for a navbar object
       axios.get("http://localhost:3004/navBarObj")
         .then(res => {
           const navBarObj = res.data;
-          this.setState({ navBarObj })
+          localStorage.setItem('navBarObj', JSON.stringify(navBarObj));
+          //const obj = JSON.parse(localStorage.getItem('navBarObj'));
+          //this.setState({ navBarObj:obj})
+        })
+      //request for a table
+      axios.get('http://localhost:3004/table')
+        .then(res => {
+          const tableObj = res.data;
+          localStorage.setItem('tableObj', JSON.stringify(tableObj));
         })
       //example post request, delete later
-      axios.post("http://localhost:3004/pancakes", "pancakes")
-  }
+      //axios.post("http://localhost:3004/pancakes", "pancakes")
+
+       //const modalObj = JSON.parse(localStorage
+    const navBarObj = JSON.parse(localStorage.getItem('navBarObj'));
+    this.setState({navBarObj});
+    //}
+    const headerObj = JSON.parse(localStorage.getItem('headerObj'));
+    this.setState({headerObj})
+    
+
+}
 
   render() {
     return (
@@ -115,34 +132,10 @@ componentWillMount() {
           {this.state && this.state.navBarObj && this.state.navBarObj.list && 
             this.state.navBarObj.titlePath && <div> {createNavBar(this.state.navBarObj)} </div>}
           <div className="container">
-            <div id="Contractor_Management_Screen">
+            <div id="Dynamic_Screen">
               <div className="container">
-                {/*creates the header object */}
-                {header(this.state.headerObj)}
-                {/*creates a panel with links*/}
-                {this.state && this.state.linksPanelObj && this.state.linksPanelObj.linkList
-                  && <div> {linksPanel(this.state.linksPanelObj)} </div>}
                 {/*creates the header and description */}
-                {headerAndDescription(this.state.headerAndDescription)}
-                {/*creates a button for a modal */}
-                {modalButton(this.state.modalButtonObj)}
-                <br/><br/>
-                {/*creates multiple panels*/}
-                {createPanels(this.state.comments)}
-                {/*creates a panel with a collapsable dropdown */}
-                {this.state && this.state.collapsePanelObj && this.state.collapsePanelObj.inputArray
-                  && <div> {collapsePanel(this.state.collapsePanelObj)} </div>}
-                {/*creates a panel with rows */}
-                {this.state && this.state.centerPanelWithRowsObj && this.state.centerPanelWithRowsObj.body &&
-                 <div> {centerPanelWithRows(this.state.centerPanelWithRowsObj)}</div>}
-                {/*creates a centered panel*/}
-                {centerPanel(this.state.centerPanel)}
-                {/*creates a table object*/}
-                {this.state && this.state.tableObj && this.state.tableObj.header &&
-                  this.state.tableObj.body && <div> {table(this.state.tableObj)} </div>}
-                {/*creates a basic modal*/}
-                {this.state && this.state.modalObj && this.state.modalObj.inputArray
-                 && <div> {basicModal(this.state.modalObj)} </div>}
+                {this.state && this.state.headerObj && <div> {header(this.state.headerObj)} </div>}
               </div>
             </div>
           </div>

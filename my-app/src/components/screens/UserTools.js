@@ -185,7 +185,9 @@ let requestObj2 = new Object();
 requestObj2.requestType = "GET";
 requestObj2.url = "http://localhost:3004/comments"
 
-
+let seperatePagePanel = new Object();
+seperatePagePanel.header = "Change User Password (other page)";
+seperatePagePanel.route = "/ChangePassword";
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {
@@ -204,6 +206,7 @@ export default class UserToolsScreen extends React.Component {
             {modalButton(workFlowModalButton)}
             <br/>
             <br/>
+            {panel(seperatePagePanel)}
             {collapsePanel(onee)}
             {createPanels(list)}
             {basicModal(changePasswordModal)}

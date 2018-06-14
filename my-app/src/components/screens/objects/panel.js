@@ -33,8 +33,9 @@ export function panel(props){
     return(
         <div className="panel panel-success">
         {/*modal panel*/}
-          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}><strong>{props.header}</strong></a></div>
-          <div className="panel-body">{props.body}</div>
+          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}><strong>{props.header}</strong></a>
+           <a href="#myModal" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-question-sign"></span></a></div>
+          {/*<div className="panel-body">{props.body}</div>*/}
         </div>
     );
   }
@@ -42,8 +43,9 @@ export function panel(props){
     return(
         <div className="panel panel-success">
           {/*link panel*/}
-          <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
-          <div className="panel-body">{props.body}</div>
+          <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a>
+          <span class="glyphicon glyphicon-question-sign"></span></div>
+          {/*<div className="panel-body">{props.body}</div>*/}
         </div>
     );
   }
@@ -53,8 +55,9 @@ export function panel(props){
 export function centerPanel(props){
 	return(
 		<div className="panel panel-success">
-            <div className="panel-heading"><a href={props.route}><strong><center>{props.header}</center></strong></a></div>
-            <div className="panel-body">{props.body}</div>
+            <div className="panel-heading"><a href={props.route}><strong><center>{props.header}</center></strong></a>
+            <span class="glyphicon glyphicon-question-sign"></span></div>
+            {/*<div className="panel-body">{props.body}</div>*/}
         </div>
 	)
 }

@@ -17,8 +17,8 @@ import VoiceAndDataServicesScreen from './components/screens/VoiceAndDataService
 import DynamicScreen from './components/screens/Dynamic'
 import LoginScreen from './components/screens/Login'
 import SearchScreen from './components/screens/search'
-
-
+import WorkAreaScreen from './components/screens/WorkArea'
+import ChangePasswordScreen from './components/screens/ChangePassword'
 
 //random data
 let routes = new Object();
@@ -74,6 +74,13 @@ let routeObj0 = new Object();
 routeObj0.path = "/";
 routeObj0.component = LoginScreen;
 
+let routeObj12 = new Object();
+routeObj12.path = "/WorkFlow";
+routeObj12.component = WorkAreaScreen;
+
+let routeObj13 = new Object();
+routeObj13.path = "/ChangePassword";
+routeObj13.component = ChangePasswordScreen;
 
 routes.list.push(routeObj1);
 routes.list.push(routeObj2);
@@ -87,6 +94,8 @@ routes.list.push(routeObj9);
 routes.list.push(routeObj10);
 routes.list.push(routeObj11);
 routes.list.push(routeObj0);
+routes.list.push(routeObj12);
+routes.list.push(routeObj13);
 
 //creates one route from a route object with a path and component
 function route(props){

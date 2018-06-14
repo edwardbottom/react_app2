@@ -127,10 +127,32 @@ export default class AccessRequestScreen extends React.Component {
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}
-            {panel(largeModalPanel)}
-            {createPanels(list)}
+            <div className="panel panel-success">
+              {/*modal panel*/}
+              <div className="panel-heading">
+                <a href='/workflow' data-toggle="modal" >
+                  <strong>Application Access V2 (Work Flow Page)</strong>
+                </a>
+                <a href="#myModal" data-toggle="modal" data-target="#myModal">
+                  <span class="glyphicon glyphicon-question-sign"></span>
+                </a>
+              </div>
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <p>"Request access to Applications within the following environments: Regular, 
+                        Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access,
+                         please click here";</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {panel(largeModalPanel)}
+              {createPanels(list)}
+            </div> 
           </div>
-      </div>
     );
   }
 }
