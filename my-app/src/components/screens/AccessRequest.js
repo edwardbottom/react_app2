@@ -10,27 +10,27 @@ import {createNavBar} from './objects/navbar';
 
 //random data
 let one = new Object();
-one.route = "link";
+one.route = "link1";
 one.header = "Cloud SUDO Access";
-one.body = "Request Cloud SUDO Access";
+//one.body = "Request Cloud SUDO Access";
 let two= new Object();
-two.route = "link";
+two.route = "link2";
 two.header = "Unix Access"
-two.body = "Request UNIX Access. If you need help requestion access, please, click here"
+//two.body = "Request UNIX Access. If you need help requestion access, please, click here"
 let three= new Object();
-three.route = "link";
+three.route = "link3";
 three.header = "Bulk Password Reset Request";
-three.body = "Request user password reset for organizations with extended user count";
+//three.body = "Request user password reset for organizations with extended user count";
 let four= new Object();
-four.route = "link";
+four.route = "link4";
 four.header = "AAUR (Access Another User(s) Resources";
 four.body = "For Business Continuity. To gain access to Email, information on hard drive, or share folders/home drives of Terminated or Users on Disability. If you need help requesting access, please click here. For obtaining information on Active employees please consult with your HR Business Partner (HRBP)";
 let five= new Object();
-five.route = "link";
+five.route = "link5";
 five.header = "Application Access V2";
 five.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
 let six= new Object();
-six.route = "link";
+six.route = "link6";
 six.header = "Application Global Group(s) & CITRIX ICON";
 six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRIX access publishes the CITRIX ICON that is used in CTL CITRIX for user(s). Application Global Group(s) access provides rights and permissions to a group of user(s) needing access to a specific Application(s). If you need help requesting access, please click here";
 

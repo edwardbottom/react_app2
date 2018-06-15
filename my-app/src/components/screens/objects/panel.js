@@ -30,35 +30,94 @@ export function input(props){
 //creates a panel using an object with a route, header, and body
 export function panel(props){
   if(props.hasOwnProperty("target")){
-    return(
-        <div className="panel panel-success">
-        {/*modal panel*/}
-          <div className="panel-heading"><a href={props.route} data-toggle="modal" data-target={props.target}><strong>{props.header}</strong></a>
-           <a href="#myModal" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-question-sign"></span></a></div>
-          {/*<div className="panel-body">{props.body}</div>*/}
+    if(props.hasOwnProperty("body")){
+      return(
+        <div>
+          <div className="panel panel-success">
+            {/*modal panel*/}
+            <div className="panel-heading">
+              <a href={props.route} data-toggle="modal" data-target={props.target}>
+                <strong>{props.header}</strong>
+              </a>
+              <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target={"#"+props.target+"-modal"}></span>
+            </div>
+          </div>
+          {/*Modal*/}
+          <div class="modal fade" id={props.target+"-modal"} role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p>{props.body}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    );
-  }
-  else{
-    return(
-        <div className="panel panel-success">
-          {/*link panel*/}
-          <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a>
-          <span class="glyphicon glyphicon-question-sign"></span></div>
-          {/*<div className="panel-body">{props.body}</div>*/}
-        </div>
-    );
-  }
-}
+        )
+      }
+      else{
+        return(
+          <div className="panel panel-success">
+            {/*modal panel*/}
+            <div className="panel-heading">
+              <a href={props.route} data-toggle="modal" data-target={props.target}>
+                <strong>{props.header}</strong>
+              </a>
+            </div>
+          </div>
+        )
+      } 
+    }
+    else{
+      if(props.hasOwnProperty("body")){
+        return(
+          <div>
+            <div className="panel panel-success">
+              {/*link panel*/}
+              <div className="panel-heading">
+                <a href={props.route}>
+                  <strong>{props.header}</strong>
+                </a>
+                <span class="glyphicon glyphicon-question-sign" data-toggle="modal" data-target={"#"+props.route+"-modal"}></span>
+              </div>
+            </div>
+            {/*Modal*/}
+            <div class="modal fade" id={props.route+"-modal"} role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <p>{props.body}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+      else{
+        return(
+          <div className="panel panel-success">
+            {/*link panel*/}
+            <div className="panel-heading">
+              <a href={props.route}>
+                <strong>{props.header}</strong>
+              </a>
+            </div>
+          </div>
+        )
+      }
+    }
+  }    
 
 //creates a panel with a centered header using an object with a route, header and body
 export function centerPanel(props){
 	return(
 		<div className="panel panel-success">
-            <div className="panel-heading"><a href={props.route}><strong><center>{props.header}</center></strong></a>
-            <span class="glyphicon glyphicon-question-sign"></span></div>
-            {/*<div className="panel-body">{props.body}</div>*/}
-        </div>
+      <div className="panel-heading"><a href={props.route}><strong><center>{props.header}</center></strong></a>
+        <span class="glyphicon glyphicon-question-sign"></span>
+      </div>
+      {<div className="panel-body">{props.body}</div>}
+    </div>
 	)
 }
 

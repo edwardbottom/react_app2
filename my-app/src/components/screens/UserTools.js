@@ -17,7 +17,7 @@ let one = new Object();
 one.route = "#";
 one.header = "Change User Password (modal)";
 one.target = "#change-password-modal";
-one.body = "Changes a Users Password When Clicked";
+//one.body = "Changes a Users Password When Clicked";
 
 
 let onee = new Object();
@@ -29,11 +29,11 @@ onee.body = "Changes a Users Password When Clicked";
 let two= new Object();
 two.route = "link";
 two.header = "Unix Access"
-two.body = "Request UNIX Access. If you need help requestion access, please, click here"
+//two.body = "Request UNIX Access. If you need help requestion access, please, click here"
 let three= new Object();
 three.route = "link";
 three.header = "Bulk Password Reset Request";
-three.body = "Request user password reset for organizations with extended user count";
+//three.body = "Request user password reset for organizations with extended user count";
 let four= new Object();
 four.route = "link";
 four.header = "AAUR (Access Another User(s) Resources";

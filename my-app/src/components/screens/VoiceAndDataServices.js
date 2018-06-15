@@ -12,27 +12,27 @@ import {createNavBar} from './objects/navbar';
 let one = new Object();
 one.route = "link";
 one.header = "Change User Password";
-one.body = "Changes a Users Password When Clicked";
+//one.body = "Changes a Users Password When Clicked";
 let two= new Object();
 two.route = "link";
 two.header = "Unix Access"
-two.body = "Request UNIX Access. If you need help requestion access, please, click here"
+//two.body = "Request UNIX Access. If you need help requestion access, please, click here"
 let three= new Object();
 three.route = "link";
 three.header = "Bulk Password Reset Request";
-three.body = "Request user password reset for organizations with extended user count";
+//three.body = "Request user password reset for organizations with extended user count";
 let four= new Object();
 four.route = "link";
 four.header = "AAUR (Access Another User(s) Resources";
-four.body = "For Business Continuity. To gain access to Email, information on hard drive, or share folders/home drives of Terminated or Users on Disability. If you need help requesting access, please click here. For obtaining information on Active employees please consult with your HR Business Partner (HRBP)";
+//four.body = "For Business Continuity. To gain access to Email, information on hard drive, or share folders/home drives of Terminated or Users on Disability. If you need help requesting access, please click here. For obtaining information on Active employees please consult with your HR Business Partner (HRBP)";
 let five= new Object();
 five.route = "link";
 five.header = "Application Access V2";
-five.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
+//five.body = "Request access to Applications within the following environments: Regular, Intelligent Desktop (ID) and CTLAccess SSO. If you need help requesting access, please click here";
 let six= new Object();
 six.route = "link";
 six.header = "Application Global Group(s) & CITRIX ICON";
-six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRIX access publishes the CITRIX ICON that is used in CTL CITRIX for user(s). Application Global Group(s) access provides rights and permissions to a group of user(s) needing access to a specific Application(s). If you need help requesting access, please click here";
+//six.body = "Request access to CITRIX ICON and Application Global Group(s). CITRIX access publishes the CITRIX ICON that is used in CTL CITRIX for user(s). Application Global Group(s) access provides rights and permissions to a group of user(s) needing access to a specific Application(s). If you need help requesting access, please click here";
 
 
 let list = [];
@@ -114,8 +114,7 @@ navBarObj.searchbar = searchBar;
 
 let centerObj = new Object();
 centerObj.header = "Voice and Data Services";
-centerObj.route = "route";
-centerObj.body = "Tools to manage and provision phone, network and other voices services.";
+centerObj.description = "Tools to manage and provision phone, network and other voices services.";
 
 let linkObj = new Object();
 linkObj.route = "route";
@@ -135,7 +134,7 @@ export default class VoiceAndDataServicesScreen extends React.Component {
       <div>
           {createNavBar(navBarObj)}
           <div className="container">
-            {centerPanel(centerObj)}
+            {headerAndDescription(centerObj)}
             {linksPanel(linkObj)}
             {headerAndDescription(headerAndDisc)}
             {header(workFlowHeader)}

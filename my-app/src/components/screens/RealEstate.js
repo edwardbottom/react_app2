@@ -12,27 +12,27 @@ import {createNavBar} from './objects/navbar';
 let one = new Object();
 one.route = "link";
 one.header = "Change User Password";
-one.body = "Can change a user's password when clicked. ";
+//one.body = "Can change a user's password when clicked. ";
 let two= new Object();
 two.route = "link";
 two.header = "Vehicle Change/Transfer Request";
-two.body = "Used to transfer a vehicle to a new driver and company or department";
+//two.body = "Used to transfer a vehicle to a new driver and company or department";
 let three= new Object();
 three.route = "link";
 three.header = "Vehicle Change/Transfer Request";
-three.body = "Used to transfer a vehicle to a new driver and company or department";
+//three.body = "Used to transfer a vehicle to a new driver and company or department";
 let four= new Object();
 four.route = "link";
 four.header = "Vehicle Change/Transfer Request";
-four.body = "Used to transfer a vehicle to a new driver and company or department";
+//four.body = "Used to transfer a vehicle to a new driver and company or department";
 let five= new Object();
 five.route = "link";
 five.header = "Vehicle Change/Transfer Request";
-five.body = "Used to transfer a vehicle to a new driver and company or department";
+//five.body = "Used to transfer a vehicle to a new driver and company or department";
 let six= new Object();
 six.route = "link";
 six.header = "Vehicle Change/Transfer Request";
-six.body = "Used to transfer a vehicle to a new driver and company or department";
+//six.body = "Used to transfer a vehicle to a new driver and company or department";
 
 let list = [];
 list.push(one);
@@ -106,8 +106,7 @@ searchBar.router = "phpIsTheWorst";
 searchBar.placeholder = "Search WSS System";
 
 let center = new Object();
-center.route = "link"
-center.body = "Support work space assignment and updates with optional changes to existing services including: Telephone service, Hardware reallocation, and mover requirements. In addition, the requisition and management of furniture to work locations.";
+center.description = "Support work space assignment and updates with optional changes to existing services including: Telephone service, Hardware reallocation, and mover requirements. In addition, the requisition and management of furniture to work locations.";
 center.header = "Real Estate"
 
 let headerObj = new Object();
@@ -139,7 +138,7 @@ export default class RealEstateScreen extends React.Component {
       <div>
           {createNavBar(navBarObj)}
           <div className="container">
-            {centerPanel(center)}
+            {headerAndDescription(center)}
             {header(headerObj)}
             {linksPanel(linksObj)}
             {(header(workFlowObj))}

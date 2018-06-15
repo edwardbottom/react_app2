@@ -12,11 +12,11 @@ import {createNavBar} from './objects/navbar';
 let one = new Object();
 one.route = "link";
 one.header = "Revision to Furniture, Equipment, and Vehicle Budget Requests";
-one.body = "Used to add or delete a resource from the company or department budget.";
+//one.body = "Used to add or delete a resource from the company or department budget.";
 let two= new Object();
 two.route = "link";
 two.header = "Vehicle Change/Transfer Request"
-two.body = "Used to transfer a vehicle to a new driver and company or department"
+//two.body = "Used to transfer a vehicle to a new driver and company or department"
 
 
 let list = [];
