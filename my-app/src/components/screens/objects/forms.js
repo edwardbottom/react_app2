@@ -30,6 +30,37 @@ export function input(props){
   }
 }
 
+//todo: make json file for this
+export function formGroup(props){
+  return (
+    <div class="form-group">
+      <label for="usr">{props.label}</label>
+      <input type={props.type} className="form-control" id={props.id}></input>
+    </div>
+  )
+}
+
+//todo: make json file for this
+export function buttonWithRoute(props){
+  return (
+    <a href={props.route}>
+      <button type="button" className={props.class}>
+        {props.label}
+      </button>
+    </a>
+  )
+}
+//todo: make json file for this
+export function formGroups(props){
+  return(
+    <div>
+      {props.inputArray.map((inputObj, index) =>
+        formGroup(inputObj)
+      )}
+    </div>
+  )
+}
+
 //todo: create json object file for this and comment
 export function radioForm(props){
   return (
@@ -58,7 +89,7 @@ export function formGroupColSize(props){
           </div>
         )}
         <div>
-          <button type="button" class="btn btn-success" id={props.buttonId}>{props.buttonLabel}</button>
+          <button type="button" className="btn btn-success" id={props.buttonId}>{props.buttonLabel}</button>
         </div>
       </div>
     </div>

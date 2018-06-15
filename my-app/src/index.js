@@ -96,7 +96,7 @@ routes.list.push(routeObj11);
 routes.list.push(routeObj0);
 routes.list.push(routeObj12);
 routes.list.push(routeObj13);
-
+]
 //creates one route from a route object with a path and component
 function route(props){
   return(
@@ -115,7 +115,6 @@ function createRoutes(props){
     ) 
 }
 
-//todo: render this to dynamic json objects 
 //renders the routes to transfer data between screens
 ReactDOM.render(
   <Router>

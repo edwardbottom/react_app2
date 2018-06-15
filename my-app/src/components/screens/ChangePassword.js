@@ -7,6 +7,7 @@ import {button, dropDownButton} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
+import {formGroup, formGroups, buttonWithRoute} from './objects/forms';
 
 //random data
 let navBarObj = new Object();
@@ -70,40 +71,61 @@ searchBar.placeholder = "Search WSS System";
 
 navBarObj.searchbar = searchBar;
 
+let formGroup1 = new Object();
+formGroup1.label = "UserName: ";
+formGroup1.type = "text";
+formGroup1.id = "usr";
+let formGroup2 = new Object();
+formGroup2.label = "Old Password: ";
+formGroup2.type = "password";
+formGroup2.id = "opass";
+let formGroup3 = new Object();
+formGroup3.label = "New Password: ";
+formGroup3.type = "password";
+formGroup3.id = "npass";
+let formGroup4 = new Object();
+formGroup4.label = "ReRenter New PAssword";
+formGroup4.type = "password";
+formGroup4.id = "rnpass";
+
+let formGroupArray = [];
+formGroupArray.push(formGroup1);
+formGroupArray.push(formGroup2);
+formGroupArray.push(formGroup3);
+formGroupArray.push(formGroup4);
+
+let formGroupObj = new Object();
+formGroupObj.inputArray = formGroupArray;
+
+let confirmButton = new Object();
+confirmButton.route = "/usertools";
+confirmButton.class = "btn btn-success";
+confirmButton.label = "Submit";
+let cancelButton = new Object();
+cancelButton.route = "/usertools";
+cancelButton.class = "btn btn-primary";
+cancelButton.label = "Cancel";
+
 //renders the access request screen
 export default class ChangePasswordScreen extends React.Component {
   render() {
     return (
       <div>
         <style>{"\
-        .divider{\
-          width:5px;\
-          height:auto;\
-          display:inline-block;\
-        }\
-      "}</style>
+          .divider{\
+            width:5px;\
+            height:auto;\
+            display:inline-block;\
+          }\
+        "}</style>
         {createNavBar(navBarObj)}
         <div className="container">
-          <div class="form-group">
-            <label for="usr">Name:</label>
-            <input type="text" class="form-control" id="usr"></input>
-          </div>
-          <div class="form-group">
-            <label for="opwd">Old Password:</label>
-            <input type="password" class="form-control" id="opwd"></input>
-          </div>
-          <div class="form-group">
-            <label for="npwd">New Password:</label>
-            <input type="password" class="form-control" id="npwd"></input>
-          </div>
-          <div class="form-group">
-            <label for="rpwd">Re-Enter New Password:</label>
-            <input type="password" class="form-control" id="rpwd"></input>
-          </div>
-          <a href="/usertools" className="btn btn-primary" role="button">Cancel</a>
+          {formGroups(formGroupObj)}
+          {buttonWithRoute(cancelButton)}
           <div class="divider"/>
-          <a href="/usertools" className="btn btn-success" role="button">Submit Changes</a>
-        </div> 
+          {buttonWithRoute(confirmButton)}
+          
+        </div>
       </div>
     );
   }
