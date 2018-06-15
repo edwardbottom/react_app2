@@ -17,12 +17,13 @@ export default class DynamicBodyScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data:props.data};
+    alert(this.state.data);
   }
 
   render() {
     return (
       <div>
-          
+          <p>{this.state.data}</p>
       </div>
     );
   }
