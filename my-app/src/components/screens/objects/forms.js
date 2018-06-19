@@ -140,30 +140,6 @@ export function modalButton(props){
     )
 }
 
-// export function complexModal(props){
-//   return(
-//     <div>
-//       <center>
-//         <div id= {props.id} class="modal-content modal-md">
-//           <div className="modal-content">
-//             <div className="modal-header">
-//               <button type="button" className="close" data-dismiss="modal">&times;</button>
-//               <h4 className="modal-title">{props.title}</h4>
-//             </div>
-//             <div className="modal-body">
-//               {props.inputArray.map((, index) =>
-//                 input(inputObj)
-//               )}
-//             </div>
-//             <div className="modal-footer">
-//               <button type="button" className="btn btn-success" data-dismiss="modal">Submit</button>
-//             </div>
-//           </div>
-//         </div>
-//       </center>
-//     </div>
-//   )
-// }
 //creates a basic modal with no header or footer and a sumbit button
 export function basicModal(props){
   function confirmHandler(){

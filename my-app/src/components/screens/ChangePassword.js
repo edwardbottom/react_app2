@@ -111,13 +111,6 @@ export default class ChangePasswordScreen extends React.Component {
   render() {
     return (
       <div>
-        <style>{"\
-          .divider{\
-            width:5px;\
-            height:auto;\
-            display:inline-block;\
-          }\
-        "}</style>
         {createNavBar(navBarObj)}
         <div className="container">
           {formGroups(formGroupObj)}

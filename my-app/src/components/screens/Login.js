@@ -19,7 +19,7 @@ export default class LoginScreen extends React.Component {
       </style>
       {/*tentative image logo*/}
       <center>
-          <img src="https://www.comaudit.com/wp-content/uploads/2016/01/CenturyLink-logo.jpg" alt="CenturyLink Logo"></img>
+          <img src="logo.png" alt="CenturyLink Logo"></img>
       </center>
       <br/>
       <br/>

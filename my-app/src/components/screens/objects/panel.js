@@ -154,24 +154,24 @@ export function centerPanelWithTable(props){
 	return(
 		<div>
 			<div className="panel panel-success">
-            	<div className="panel-heading">
-            		<a href={props.route}><center><strong>{props.header}</strong></center></a>
-            	</div>
-            	<div className="panel-body">
-            		<table className="table table-striped table-bordered table-hover">
-        				<tbody>
-          				{/*iteams in table */}
-          				{props.tableContents.map((tableObj, index) =>
-            				<tr>
-              					<td> {tableObj.task} </td>
-              					<td> {tableObj.description} </td>
-            				</tr>
-            			)}
-        				</tbody>
-      				</table>
-            	</div>
-        	</div>
+        <div className="panel-heading">
+          <a href={props.route}><center><strong>{props.header}</strong></center></a>
         </div>
+        <div className="panel-body">
+          <table className="table table-striped table-bordered table-hover">
+        		<tbody>
+          		{/*iteams in table */}
+          		{props.tableContents.map((tableObj, index) =>
+            	  <tr>
+              		<td> {tableObj.task} </td>
+              		<td> {tableObj.description} </td>
+            		</tr>
+            	)}
+        		</tbody>
+      		</table>
+        </div>
+      </div>
+    </div>
 	)
 }
 //creates a center panel with rows using an object with a route, header and array(body) that 
@@ -185,20 +185,20 @@ export function centerPanelWithRows(props){
         </div>
         <div className="panel-body">
           <div className="row">
-            			{props.body.map((rowObj, index) => 
-            				<div>
-            					<div className="col-md-6">{rowObj.task}</div>
-                      <div className="col-md-6">{rowObj.description}</div>
-                      <br/>
-                      <br/>
-                    </div>
-            			 )}
-            		</div>
+            {props.body.map((rowObj, index) => 
+            	<div>
+            		<div className="col-md-6">{rowObj.task}</div>
+                  <div className="col-md-6">{rowObj.description}</div>
+                    <br/>
+                    <br/>
+                  </div>
+            		)}
             	</div>
+            </div>
         	</div>
         </div>
-	)
-}
+	     )
+      }
 
 //helper function to create a link using a url and text
 function link(props){
@@ -211,16 +211,16 @@ function link(props){
 export function linksPanel(props){
 	return(
 		<div className="panel panel-success">
-            <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
-            <div className="panel-body">
-            	<ul>
-            		{props.linkList.map((linkObj, index) =>
-              			link(linkObj)
-          			)}
-          		</ul>
-            </div>
-        </div>
-		)
+      <div className="panel-heading"><a href={props.route}><strong>{props.header}</strong></a></div>
+      <div className="panel-body">
+        <ul>
+          {props.linkList.map((linkObj, index) =>
+            link(linkObj)
+          )}
+        </ul>
+      </div>
+    </div>
+	)
 }
 
 //creates multiple panels using an array of panel objects and the panel function
@@ -239,10 +239,10 @@ export function createCenterPanels(list){
 	return (
 		<div>
 			<hr/>
-          		{list.map((pan, index) =>
-              		centerPanel(pan)
-          		)}
-        </div>
+      {list.map((pan, index) =>
+        centerPanel(pan)
+      )}
+    </div>
 	);
 }
 

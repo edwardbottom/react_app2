@@ -17,7 +17,8 @@ export function createNavBar(props){
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href={props.titlePath}><strong>WSS</strong> By CenturyLink</a>
+              <a className="navbar-left" href={props.titlePath}><img src="CTL Logo Reverse NA.png" 
+              width="200" height="50" alt="CenturyLink Logo"></img></a>
             </div>
           {/*navigation bar links*/}
           <ul className="nav navbar-nav">

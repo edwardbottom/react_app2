@@ -149,6 +149,13 @@ export default class AccessRequestScreen extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className="panel panel-success">
+                <div className="panel-heading">
+                  <a href='/complexscreen'>
+                    <strong>Application Access V2 (dynamic Page)</strong>
+                  </a>
+                </div>
+              </div>
               {panel(largeModalPanel)}
               {createPanels(list)}
             </div> 
