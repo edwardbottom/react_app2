@@ -25,7 +25,7 @@ export function createNavBar(props){
             {/*<hr/>*/}
 				    {props.list.map((navObj, index) =>
     				  navIteam(navObj)
-				    )};
+				    )}
           </ul>
         {/*search bar */}
         {rightSearchBar(props.searchbar)}

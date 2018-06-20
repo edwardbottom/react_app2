@@ -192,6 +192,23 @@ seperatePagePanel.route = "/ChangePassword";
 
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
+  //constructor and state intialization
+  constructor(props) {
+    super(props);
+    this.state = {navData:this.props.navData,
+      content:null,
+    };
+  };
+
+  //state life cycle
+  componentDidMount() {
+      //axios.get(this.state.url)
+      //.then(res => {
+        //const content = res.data;
+        //this.setState({ content });
+      //})
+  }
+
   render() {
     //function to make a get request for an object
     function getHandler(){
@@ -203,7 +220,7 @@ export default class UserToolsScreen extends React.Component {
     }
     return (
       <div>
-          {createNavBar(navBarObj)}
+          {createNavBar(this.state.navData)}
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}

@@ -95,10 +95,27 @@ navBarObj.searchbar = searchBar;
 
 //renders the budget request screen
 export default class BudgetRequestsScreen extends React.Component {
+  //constructor and state intialization
+  constructor(props) {
+    super(props);
+    this.state = {navData:this.props.navData,
+      content:null,
+    };
+  };
+
+  //state life cycle
+  componentDidMount() {
+      //axios.get(this.state.url)
+      //.then(res => {
+        //const content = res.data;
+        //this.setState({ content });
+      //})
+  }
+
   render() {
     return (
       <div>
-          {createNavBar(navBarObj)}
+          {createNavBar(this.state.navData)}
           <div className="container">
             {headerAndDescription(textObj)}
             {createPanels(list)}

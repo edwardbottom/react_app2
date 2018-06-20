@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
+import axios from 'axios';
 
 //imports the screens for the routes from the files in the screens folder
 import HomeScreen from './components/screens/MyTasks';
@@ -22,70 +23,69 @@ import WorkAreaScreen from './components/screens/WorkArea'
 import ChangePasswordScreen from './components/screens/ChangePassword'
 import ComplexScreen from './components/screens/ComplexScreen'
 
-//random data
 
 //random data
-var navBarObj = new Object();
-navBarObj.titlePath = "/home";
-let navItems = [];
-let navone = new Object();
-navone.id = "my_tasks_listener"
-navone.path= "/home"
-navone.action= "loadMyTasks();"
-navone.description= "My Tasks";
+// var navBarObj = new Object();
+// navBarObj.titlePath = "/home";
+// let navItems = [];
+// let navone = new Object();
+// navone.id = "my_tasks_listener"
+// navone.path= "/home"
+// navone.action= "loadMyTasks();"
+// navone.description= "My Tasks";
 
-let navtwo = new Object();
-navtwo.id = "access_request_listener";
-navtwo.path= "/accessrequest";
-navtwo.description="Access Request";
+// let navtwo = new Object();
+// navtwo.id = "access_request_listener";
+// navtwo.path= "/accessrequest";
+// navtwo.description="Access Request";
 
-let navthree = new Object();
-navthree.id = "budget_request_listener";
-navthree.path= "/budgetrequests";
-navthree.description="Budget Request";
+// let navthree = new Object();
+// navthree.id = "budget_request_listener";
+// navthree.path= "/budgetrequests";
+// navthree.description="Budget Request";
 
-let navfour = new Object();
-navfour.id = "contractor_management_listener";
-navfour.path= "/contractormanagement";
-navfour.description="Contractor Management";
+// let navfour = new Object();
+// navfour.id = "contractor_management_listener";
+// navfour.path= "/contractormanagement";
+// navfour.description="Contractor Management";
 
-let navfive = new Object();
-navfive.id = "real_estate_listener";
-navfive.path= "/realestate";
-navfive.description="Real Estate"
+// let navfive = new Object();
+// navfive.id = "real_estate_listener";
+// navfive.path= "/realestate";
+// navfive.description="Real Estate"
 
-let navseven = new Object();
-navseven.id = "user_tools_listener";
-navseven.path= "/usertools";
-navseven.description="User Tools"
+// let navseven = new Object();
+// navseven.id = "user_tools_listener";
+// navseven.path= "/usertools";
+// navseven.description="User Tools"
 
-let naveight = new Object();
-naveight.id = "voice_and_data_services_listener"
-naveight.path= "/voiceanddataservices"
-naveight.description="Voice and Data Services"
+// let naveight = new Object();
+// naveight.id = "voice_and_data_services_listener"
+// naveight.path= "/voiceanddataservices"
+// naveight.description="Voice and Data Services"
 
-let navnine = new Object();
-navnine.id= "logout"
-navnine.path= "/"
-navnine.description="Logout"
+// let navnine = new Object();
+// navnine.id= "logout"
+// navnine.path= "/"
+// navnine.description="Logout"
 
-navItems.push(navone);
-navItems.push(navtwo);
-navItems.push(navthree);
-navItems.push(navfour);
-navItems.push(navfive);
-navItems.push(navseven);
-navItems.push(naveight);
-navItems.push(navnine);
+// navItems.push(navone);
+// navItems.push(navtwo);
+// navItems.push(navthree);
+// navItems.push(navfour);
+// navItems.push(navfive);
+// navItems.push(navseven);
+// navItems.push(naveight);
+// navItems.push(navnine);
 
-navBarObj.list = navItems;
+// navBarObj.list = navItems;
 
-let searchBar = new Object();
-searchBar.router = "phpIsTheWorst";
-searchBar.placeholder = "Search WSS System";
+// let searchBar = new Object();
+// searchBar.router = "phpIsTheWorst";
+// searchBar.placeholder = "Search WSS System";
 
 
-navBarObj.searchbar = searchBar;
+// navBarObj.searchbar = searchBar;
 
 let routes = new Object();
 routes.list = [];
@@ -169,37 +169,50 @@ routes.list.push(routeObj12);
 routes.list.push(routeObj13);
 routes.list.push(routeObj14);
 
-//creates one route from a route object with a path and component
-function route(props){
-  return(
-    <PropsRoute exact path={props.path} component={props.component} data={props.data}/>
-  );
-}
-
-//creates routes from an object with a list of route objects
-function createRoutes(props){
-  return(
-    <div>
-        {props.list.map((routeObj, index) =>
-          route(routeObj)
-        )}
-    </div>
-    ) 
-}
 
 export default class App extends React.Component {
   //sets the state of the class
   constructor(props) {
     super(props);
-    this.state = {data: props.data};
+    this.state = {navObj: null};
   }
+
+  //state life cycle
+  componentDidMount() {
+      axios.get("http://localhost:3004/navBarObj")
+      .then(res => {
+        const navBarObj = res.data;
+        this.setState({ navBarObj });
+        //alert(this.state.navBarObj);
+      })
+  }
+
+  //creates one route from a route object with a path and component
+  route(props){
+    return(
+      <PropsRoute exact path={props.path} component={props.component} navData={this.state.navBarObj}/>
+    );
+  }
+
+  //creates routes from an object with a list of route objects
+  createRoutes(props){
+    if(this.state.navBarObj != undefined){
+      return(
+        <div>
+          {props.list.map((routeObj, index) =>
+            this.route(routeObj, this)
+          )}
+        </div>
+        ) 
+      }
+    }
 
   //renders the template for the class
   render() {
     return (
       <div>
-        <Router data="somi is a ledgend">
-          {createRoutes(routes)}
+        <Router>
+          {this.createRoutes(routes)}
         </Router>
       </div>
     );

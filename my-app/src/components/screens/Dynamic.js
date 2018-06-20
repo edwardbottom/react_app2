@@ -148,7 +148,8 @@ export default class DynamicBodyScreen extends React.Component {
   //constructor and state intialization
   constructor(props) {
     super(props);
-    this.state = {nav:navBarObj,
+    console.log(this.props.navData);
+    this.state = {nav:this.props.navData,
       content:null,
       //url:this.props.url
       url:"http://localhost:3004/content"

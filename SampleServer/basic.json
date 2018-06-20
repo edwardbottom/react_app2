@@ -1,4 +1,57 @@
 {
+  "navBarObj": {
+    "titlePath": "/home",
+    "list": [
+      {
+        "id": "my_tasks_listener",
+        "path": "/home",
+        "action": "loadMyTasks()",
+        "description": "My Tasks"
+      },
+      {
+        "id": "access_request_listener",
+        "path": "/accessrequest",
+        "description": "Access Request"
+      },
+      {
+        "id": "budget_request_listener",
+        "path": "/budgetrequests",
+        "description": "Budget Request"
+      },
+      {
+        "id": "contractor_management_listener",
+        "path": "/contractormanagement",
+        "description": "Contractor Management"
+      },
+      {
+        "id": "real_estate_listener",
+        "path": "/realestate",
+        "description": "Real Estate"
+      },
+      {
+        "id": "user_tools_listener",
+        "path": "/usertools",
+        "description": "User Tools"
+      },
+      {
+        "id": "voice_and_data_services_listener",
+        "path": "/voiceanddataservices",
+        "description": "Voice and Data Services"
+      },
+      {
+        "id": "dynamic_screen",
+        "path": "/dynamic",
+        "description": "Dynamic"
+      },
+      {
+        "router": "phpIsTheWorst",
+        "placeholder": "Search WSS System"
+      }
+    ],
+    "searchbar":{
+      "placeholder":"Search WSS"
+    }
+  },
   "content": [
     {
       "type": "headerAndDescription",

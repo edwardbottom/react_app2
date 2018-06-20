@@ -129,10 +129,26 @@ linkObj.linkList.push(lObj);
 
 //renders a class for the voice and data services screen
 export default class VoiceAndDataServicesScreen extends React.Component {
+  //constructor and state intialization
+  constructor(props) {
+    super(props);
+    this.state = {navData:this.props.navData,
+      content:null,
+    };
+  };
+
+  //state life cycle
+  componentDidMount() {
+      //axios.get(this.state.url)
+      //.then(res => {
+        //const content = res.data;
+        //this.setState({ content });
+      //})
+  }
   render() {
     return (
       <div>
-          {createNavBar(navBarObj)}
+          {createNavBar(this.state.navData)}
           <div className="container">
             {headerAndDescription(centerObj)}
             {linksPanel(linkObj)}

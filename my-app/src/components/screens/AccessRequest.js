@@ -120,10 +120,29 @@ largeModalPanel.body = "Request access to Applications within the following envi
 
 //renders the access request screen
 export default class AccessRequestScreen extends React.Component {
+  //constructor and state intialization
+  constructor(props) {
+    super(props);
+    this.state = {navData:this.props.navData,
+      content:null,
+      //url:this.props.url
+      //url:"http://localhost:3004/content"
+    };
+  };
+
+  //state life cycle
+  componentDidMount() {
+      //axios.get(this.state.url)
+      //.then(res => {
+        //const content = res.data;
+        //this.setState({ content });
+      //})
+  }
+
   render() {
     return (
       <div>
-          {createNavBar(navBarObj)}
+          {createNavBar(this.state.navData)}
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}
