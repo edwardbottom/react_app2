@@ -1,6 +1,7 @@
 //imports react 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {infoModal} from './forms';
 
 //creates a header using an object with text
 function header(props){
@@ -33,10 +34,12 @@ export function table(props){
           {/*iteams in table */}
           {props.body.map((rowObj, index) =>
             <tr>
-              <td> {rowObj.task} </td>
+              <td> {rowObj.task} <a data-toggle="modal" href={rowObj.modalLink} 
+              data-target={rowObj.modalLink}>*</a></td>
               <td> {rowObj.description} </td>
+              {infoModal(rowObj.modal)}
             </tr>
-            )}
+          )}
         </tbody>
       </table>
     </div>
@@ -59,7 +62,7 @@ export function tableWithoutHeader(props){
         </tbody>
       </table>
     </div>
-    );
+  );
 }
 
 

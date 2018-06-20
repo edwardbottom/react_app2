@@ -10,6 +10,7 @@ export function welcome(props){
 }
 
 //todo: modify for more types of input
+//takes in input objects and creates a specified input form based off the values of the object
 export function input(props){
   if(props.hasOwnProperty("type") && props.hasOwnProperty("id") && props.hasOwnProperty("placeholder")){
     return(

@@ -16,3 +16,12 @@
     "value": "text"
   }
 }
+
+
+{
+  "inputObj": {
+    "type": "input",
+    "id": "text",
+    "class": "text"
+  }
+}

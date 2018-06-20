@@ -17,7 +17,7 @@ export default class LoginScreen extends React.Component {
       <br/>
       <br/>
       </style>
-      {/*tentative image logo*/}
+      {/* login image logo*/}
       <center>
           <img src="logo.png" alt="CenturyLink Logo"></img>
       </center>

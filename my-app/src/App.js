@@ -176,7 +176,7 @@ function route(props){
   );
 }
 
-//creates routes from an objects with a list of route objects
+//creates routes from an object with a list of route objects
 function createRoutes(props){
   return(
     <div>
@@ -188,11 +188,13 @@ function createRoutes(props){
 }
 
 export default class App extends React.Component {
+  //sets the state of the class
   constructor(props) {
     super(props);
     this.state = {data: props.data};
   }
 
+  //renders the template for the class
   render() {
     return (
       <div>

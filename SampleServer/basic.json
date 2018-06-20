@@ -1,4 +1,48 @@
 {
+  "content": [
+    {
+      "type": "headerAndDescription",
+      "header": "Voice and Data Services",
+      "description": "Tools to manage and provision phone, network and other voices services."
+    },
+    {
+      "type": "linksPanel",
+      "route": "https://www.youtube.com/watch?v=OQ5rI461KNE&list=RDGMEMHDXYb1_DDSgDsobPsOFxpAVMXVQOhIVcMj0&index=2",
+      "header": "Important Links",
+      "linkList": [
+        {
+          "url": "https://www.youtube.com/watch?v=YQ5KH0xVS5M&index=3&list=RDGMEMHDXYb1_DDSgDsobPsOFxpAVMXVQOhIVcMj0",
+          "text": "Important Link"
+        }
+      ]
+    },
+    {
+      "type": "headerAndDescription",
+      "header": "User Tools",
+      "description": "null"
+    },
+    {
+      "type": "header",
+      "header": "Work Flow"
+    },
+    {
+      "type": "createPanels",
+      "list": [
+        {
+          "route": "/dynamic",
+          "header": "Change User Password"
+        },
+        {
+          "route": "/dynamic",
+          "header": "Linux Access"
+        },
+        {
+          "route": "/dynamic",
+          "header": "Edward is amazing"
+        }
+      ]
+    }
+  ],
   "posts": [
     {
       "id": 1,

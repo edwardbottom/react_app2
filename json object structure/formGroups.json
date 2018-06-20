@@ -1,0 +1,17 @@
+{
+  "formGroups": {
+    "title": {},
+    "inputArray": [
+      {
+        "label": {},
+        "type": {},
+        "id": {}
+      },
+      {
+        "label": {},
+        "type": {},
+        "id": {}
+      }
+    ]
+  }
+}

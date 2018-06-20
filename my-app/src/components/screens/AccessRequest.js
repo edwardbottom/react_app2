@@ -127,6 +127,7 @@ export default class AccessRequestScreen extends React.Component {
           <div className="container">
             {headerAndDescription(textObj)}
             {header(headerObj)}
+          {/*hard code*/}
             <div className="panel panel-success">
               {/*modal panel*/}
               <div className="panel-heading">

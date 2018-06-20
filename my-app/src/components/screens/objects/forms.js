@@ -31,6 +31,7 @@ export function input(props){
 }
 
 //todo: make json file for this
+//creates a bootstrap form group
 export function formGroup(props){
   return (
     <div class="form-group">
@@ -41,6 +42,7 @@ export function formGroup(props){
 }
 
 //todo: make json file for this
+//creates a button that routes to a certain page
 export function buttonWithRoute(props){
   return (
     <a href={props.route}>
@@ -51,6 +53,7 @@ export function buttonWithRoute(props){
   )
 }
 //todo: make json file for this
+//creates multiple form groups using an array
 export function formGroups(props){
   return(
     <div>
@@ -62,6 +65,7 @@ export function formGroups(props){
 }
 
 //todo: create json object file for this and comment
+//creates a form with radio buttons using an array of radio button objects
 export function radioForm(props){
   return (
    <form>
@@ -78,6 +82,7 @@ export function radioForm(props){
 }
 
 //todo: document with json
+//creates a form group in a column
 export function formGroupColSize(props){
   return(
     <div className="form-group">
@@ -97,6 +102,7 @@ export function formGroupColSize(props){
 }
 
 //todo: make json object
+//helper function to create a values for a table in a modal
 function modalTableData(props){
   return(
     <tr>
@@ -107,6 +113,7 @@ function modalTableData(props){
 }
 
 //todo: make json object
+//creates a table for a modal using the modalTableData function
 export function modalTable(props){
   return(
     <div class={props.colSize}>
@@ -222,3 +229,22 @@ export function largeModal(props){
   )
 }
 
+//creates a modal to display information with no header or footer and a sumbit button
+export function infoModal(props){
+  return(
+    <center>
+      <div id={props.id} class="modal fade modal-md" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p>{props.description}</p>
+              <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Approve</button>
+              <p>     </p>
+              <button type="button" class="btn btn-danger .btn-sm" data-dismiss="modal">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+  );
+}

@@ -188,12 +188,16 @@ requestObj2.url = "http://localhost:3004/comments"
 let seperatePagePanel = new Object();
 seperatePagePanel.header = "Change User Password (other page)";
 seperatePagePanel.route = "/ChangePassword";
+
+
 //class to render the usertools screen
 export default class UserToolsScreen extends React.Component {
   render() {
+    //function to make a get request for an object
     function getHandler(){
       {request(requestObj)}
     }
+    //function to make the get request for an array
     function getHandlerArr(){
       {request(requestObj2)}
     }

@@ -1,0 +1,6 @@
+{
+  "buttonWithHandler": {
+    "handler": "an existing function",
+    "description": "text"
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup,ControlLabel,FormControl,HelpBlock,Checkbox,Radio,inline,Form} from 'react-bootstrap';
 
+//creates a group of input objects
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}>
@@ -14,11 +15,12 @@ function FieldGroup({ id, label, help, ...props }) {
 //helper function that creates a single textbox
 export function textGroup(props){
 	return(
-		<FormGroup controlId={props.id}>
+		  <FormGroup inline controlId={props.id}>
     		<ControlLabel>{props.label}</ControlLabel>{' '}<br/>
-    		<FormControl type={props.type} placeholder={props.placeholder} />{' '}
+    		<FormControl type={props.type} bsSize={props.size} placeholder={props.placeholder} />{' '}
     		<div class="divider"/>
   		</FormGroup>
+      
 	)
 }
 
@@ -27,11 +29,13 @@ export function textGroups(props){
 	return(
 		<div>
 			<Form inline>
-      			{props.inputArray.map((inputObj, index) =>
-        			textGroup(inputObj)
-      			)}
-      		</Form>
-    	</div>
+        <div class="form-group row">
+      		{props.inputArray.map((inputObj, index) =>
+        		textGroup(inputObj)
+      		)}
+        </div>
+      </Form>
+    </div>
 	)
 }
 
@@ -98,21 +102,23 @@ function radioOption(props){
 //uses an array of radioOption objects to create a radio form
 export function radioForm(props){
 	return(
-		<form inline>
-			<FormGroup>
+    <div align={props.align}>
+		  <form inline>
+			 <FormGroup>
 		 		{props.inputArray.map((inputObj, index) =>
         			radioOption(inputObj)
-      				)}
+      	 )}
     		</FormGroup>
     		<br/>
     	</form>
+    </div>
 	)
 }
 
 //creates a single check box with a label
 export function checkBox(props){
 	return(
-		<div>
+		<div align={props.align}>
 		 	<Checkbox>
       			{props.label}
     		</Checkbox>
@@ -120,11 +126,28 @@ export function checkBox(props){
 	)
 }
 
-export function rightButton(props){
-	return(
-		 <div className="form-group" style={{textAlign:'right'}}>
-            <button type="button" className={props.class} id={props.id}>{props.text}</button>
-         </div>
-	)
+//creates a button aligned to the right side of the screen
+export function button(props){
+  if(props.align == "left"){
+    return(
+      <div className="form-group" style={{textAlign:'left'}}>
+        <button type="button" className={props.class} id={props.id}>{props.text}</button>
+      </div>
+    )
+  }
+  else if(props.align == "center"){
+     return(
+      <div className="form-group" style={{textAlign:'center'}}>
+        <button type="button" className={props.class} id={props.id}>{props.text}</button>
+      </div>
+    )
+  }
+  else{
+    return(
+      <div className="form-group" style={{textAlign:'right'}}>
+        <button type="button" className={props.class} id={props.id}>{props.text}</button>
+      </div>
+    )
+  }
 }
 

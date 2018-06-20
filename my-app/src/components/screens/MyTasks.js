@@ -121,9 +121,17 @@ tableObj.body = [];
 let rowObj = new Object();
 rowObj.task = "A Task";
 rowObj.description = "from the database";
+rowObj.modalLink = "#modalLink";
+rowObj.modal = new Object();
+rowObj.modal.id = "modalLink"
+rowObj.modal.description = "Do you want to approve or reject A Task?";
+
 tableObj.body.push(rowObj);
 tableObj.body.push(rowObj);
 tableObj.body.push(rowObj);
+
+
+
 
 let historyButton = new Object();
 historyButton.target = "/history";

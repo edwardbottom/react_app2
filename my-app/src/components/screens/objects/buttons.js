@@ -11,6 +11,7 @@ export function button(props){
     </div>
     );
 }
+
 //renders a button as a link using an object with text and a target
 export function buttonWithLink(props){
   return(
@@ -47,7 +48,7 @@ export function dropDownButton(props){
     )
 }
 
-//todo: make json object documentation for this
+//creates a button that runs a function (handler) when clicked
 export function buttonWithHandeler(props){
   return(
     <div>

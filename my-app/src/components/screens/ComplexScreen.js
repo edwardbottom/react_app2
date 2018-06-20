@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {textGroup, textGroups, selectOption, 
 	singleSelect, multipleSelect, textArea, 
-	radioOption, radioForm, checkBox, rightButton} from './objects/FormGroup';
+	radioOption, radioForm, checkBox, button} from './objects/FormGroup';
 import {createNavBar} from './objects/navbar';
 import {headerAndDescription, header} from './objects/HeaderAndDescription';
 
-
+//random data
 let navBarObj = new Object();
 navBarObj.titlePath = "/home";
 let navItems = [];
@@ -88,6 +88,7 @@ rArray.push(radio);
 var something = new Object();
 something.type = "radioForm";
 something.inputArray = rArray;
+something.align = "center";
 objArray.push(something);
 
 var textBoxes = [];
@@ -96,24 +97,28 @@ textBox.id = "last_name";
 textBox.label = "Last Name";
 textBox.type = "text";
 textBox.placeholder = "Last Name";
+textBox.size = "large";
 textBoxes.push(textBox);
 var oBox = new Object();
 oBox.id = "first_name";
 oBox.label = "First Name";
 oBox.type = "text";
 oBox.placeholder = "First Name";
+oBox.size = "small";
 textBoxes.push(oBox);
 var aBox = new Object();
 aBox.id = "sap_id";
 aBox.label = "SAP ID";
 aBox.type = "text";
 aBox.placeholder = "SAP ID";
+aBox.size = "small";
 textBoxes.push(aBox);
 var qBox = new Object();
 qBox.id = "adid";
 qBox.label = "ADID";
 qBox.type = "text";
 qBox.placeholder = "Use a comma for multiple ADID";
+qBox.size = "medium";
 textBoxes.push(qBox);
 
 
@@ -125,8 +130,9 @@ objArray.push(ttt);
 var rButton = new Object();
 rButton.id = "searchComplex";
 rButton.text = "Search";
-rButton.type = "rightButton";
+rButton.type = "button";
 rButton.class = "btn btn-success";
+rButton.align = "textAlign:'right'";
 objArray.push(rButton);
 
 var mObject = new Object();
@@ -144,13 +150,15 @@ objArray.push(mObject);
 
 var check = new Object();
 check.type = "check";
-check.label = "Approve Changes";
+check.label = "Confirm Changes";
+check.align = "center";
 objArray.push(check);
 
 var sButton = new Object();
 sButton.type = "confirmButtons";
 objArray.push(sButton);
 
+//creates text from an object passed in
 function text(props){
 	return (
 		<div>
@@ -158,12 +166,15 @@ function text(props){
 		</div>
 	)
 }
+//creates a form using an array with form objects
 function createComplexForm(props){
 	if(props.length > 0){
         return(
         	<div>
+            {/*iterates through the array*/}
       			{props.map(inputObj => {
         			if(inputObj.type === "header"){
+        				if(inputObj.align == "left")
           				return (
           					<div>
            						{header(inputObj)}
@@ -242,10 +253,10 @@ function createComplexForm(props){
         					</div>
         				)
         			}
-        			else if(inputObj.type == "rightButton"){
+        			else if(inputObj.type == "button"){
         				return(
         					<div>
-        						{rightButton(inputObj)}
+        						{button(inputObj)}
         					</div>
         				)
         			}

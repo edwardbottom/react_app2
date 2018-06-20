@@ -1,0 +1,13 @@
+{
+  "RadioForm": {
+    "alight": "left/right/center",
+    "inputArray": [
+      {
+        "label": ""
+      },
+      {
+        "label": ""
+      }
+    ]
+  }
+}
