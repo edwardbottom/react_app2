@@ -58,6 +58,7 @@ function createScreen(props){
     )
   }     
 }
+
 export default class DynamicBodyScreen extends React.Component {
   //constructor and state intialization
   constructor(props) {

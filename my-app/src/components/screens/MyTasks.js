@@ -7,7 +7,6 @@ import {button, dropDownButton, buttonWithLink} from './objects/buttons';
 import {rightSearchBar} from './objects/SearchBar';
 import {table} from './objects/table';
 import {createNavBar} from './objects/navbar';
-
 //random data
 
 let otherSearchBar = new Object();
@@ -75,6 +74,7 @@ let historyButton = new Object();
 historyButton.target = "/history";
 historyButton.text = "History";
 
+var data = data = [{one: 'fish'}, {two: 'fish'}, {red: 'fish'}, {blue: 'fish'}];
 //renders the screen for my tasks
 export default class MyTasksScreen extends React.Component {
   //constructor and state intialization

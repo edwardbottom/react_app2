@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {infoModal} from './forms';
-
 //creates a header using an object with text
 function header(props){
   return(
@@ -21,7 +20,7 @@ function tableData(props){
 export function table(props){
 	return(
     <div>
-      <table className="table table-striped table-bordered table-hover">
+      <table className="table table-striped table-bordered table-hover" id="myTable">
         {/*table headers*/}
         <thead>
           <tr>
@@ -34,8 +33,8 @@ export function table(props){
           {/*iteams in table */}
           {props.body.map((rowObj, index) =>
             <tr>
-              <td> {rowObj.task} <a data-toggle="modal" href={rowObj.modalLink} 
-              data-target={rowObj.modalLink}>*</a></td>
+              <td> {rowObj.task} <span class="glyphicon glyphicon-ok-sign"
+               data-toggle="modal" data-target={rowObj.modalLink}></span></td>
               <td> {rowObj.description} </td>
               {infoModal(rowObj.modal)}
             </tr>
